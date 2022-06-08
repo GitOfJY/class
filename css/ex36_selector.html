@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #list input {
+            display: block;
+            border: 1px solid #444;
+            padding: 3px;
+            margin-top: 3px;
+            background-color: white;
+            color: #444;
+        }
+
+
+        /* 
+        input:required { background-color: bisque;}
+        우선순위에 밀려서 출력 안됨 > 11점
+        #list 붙여서 우선순위 높이기 
+       
+        #list input:required { background-color: bisque;}
+        #list input:optional { background-color: #ccc; } 
+        */
+
+
+        /* 
+        #list input:disabled { background-color: #999; }
+        #list input:enabled { background-color: goldenrod; } 
+        */
+
+
+        /* 
+        #list input:read-only { cursor: crosshair; }
+        #list input:read-only { cursor: progress; }
+        
+        커서 > 이미지 > 혼동이 오지 않게 조심
+        */
+
+
+        /*
+        input[type=checkbox] {
+            
+            border: 1px solid black;
+            background-color: gold; 
+            
+            불투명도(0~1) 조절
+            opacity: 0.3;
+
+            opacity: 0; > 화면에 안 보임, 자리는 차지하지만 클릭 안 됨 }
+        */
+
+
+        /* 체크된 체크박스
+        input[type=checkbox]:checked {
+            opacity: 1;
+        }*/
+
+
+        /* 
+        #cb-cat:checked + #cat {
+            visibility: hidden;
+        }*/
+
+
+        #cat {
+            visibility: hidden;
+        }
+
+        #cb-cat:checked + #cat {
+            visibility: visible;
+        }
+
+        #cb1:checked + div {
+            display: none;
+        }
+
+        .item {
+            border: 1px solid black;
+            width: 200px;
+        }
+
+        .item #cb2 {
+            display: none;
+        }
+
+        .item label {
+            font-size: 1.5rem;
+            font-family: Arial;
+            font-variant: small-caps;
+            display: block;
+            padding: 10px;
+            background-color: cornflowerblue;
+            color: white;
+            cursor: pointer;
+        }
+
+        .item div {
+            padding: 15px;
+            border-top: 1px solid black;
+            display: none;
+        }
+
+        /* .item #cb2:checked ~ div */
+        .item #cb2:checked + label + div {
+            display: block;
+        }
+
+        .item #cb2:checked + label {
+            background-color: tomato;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!--  ex36_selector.html  -->
+
+    <h1>콘텐츠</h1>
+
+    <div class="item">
+       <input type="checkbox" id="cb2">
+       <label for="cb2">Html</label>
+       <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi sed quibusdam modi? Sapiente optio animi, voluptatibus voluptas impedit consequuntur dolores libero reiciendis porro. Adipisci cumque ipsa deserunt eligendi saepe quia!</div>
+    </div>
+
+
+    <br><br><hr><br><br>
+
+
+    <div id="list">
+
+        <!-- input[value=$]*10 -->
+
+        <input type="text" value="1" required>
+        <input type="text" value="2" readonly>
+        <input type="text" value="3" readonly>
+        <input type="text" value="4">
+        <input type="text" value="5" required>
+        <input type="text" value="6" disabled>
+        <input type="text" value="7" disabled>
+        <input type="text" value="8">
+        <input type="text" value="9">
+        <input type="text" value="10" required>
+
+    </div>
+
+    <br><br><hr><br><br>
+
+    <div>
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+    </div>
+
+    <br><br><br><br><hr><br><br><br><br>
+
+    <div>
+        <input type="checkbox" id="cb-cat">
+        <img src="images/catty01.png" id="cat">
+    </div>
+
+    <br><br><br><br><hr><br><br><br><br>
+
+    <details>
+        <summary>제목</summary>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis quae alias adipisci praesentium odit atque officiis ipsum quo magnam nostrum. Veritatis, perspiciatis quidem? Corrupti dolore eos ab omnis optio aliquam.</p>
+    </details>
+
+    <br><br><br><br><hr><br><br><br><br>
+
+    설명 감추기 <input type="checkbox" id="cb1">
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum dolorem animi fugiat aspernatur maxime nobis accusamus tempore, hic enim dignissimos minima eveniet dolore numquam assumenda. Vero eos consectetur laboriosam! Unde!</div>
+
+    <br><br><br><br><br><br>
+    
+</body>
+</html>
