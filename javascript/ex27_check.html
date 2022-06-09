@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--  ex27_check.html  -->
+
+    <h1>체크 박스</h1>
+
+    <form name="form1">
+        <input type="checkbox" name="cb1" value="yes">
+        <input type="button" value="버튼1" name="btn1">
+    </form>
+
+    <hr>
+
+    <h1>회원 가입</h1>
+
+    <h2>이용 약관</h2>
+    <div style="width:500px; height:150px; overflow:auto; border:1px solid black;">lorem500</div>
+
+    <hr>
+
+    <label>
+        <input type="checkbox" name="cbagree">
+        약관에 동의합니다.
+    </label>
+
+    <hr>
+
+    <input type="button" value="다음" onclick="location.href='next.html';" name="btnnext" disabled>
+    <!-- disabled > 버튼 눌리지 않게 설정 -->
+
+    <hr>
+
+    <h1>받은 편지함</h1>
+
+    <table border width="500">
+        <tr>
+            <th><input type="checkbox" name="cball"></th>
+            <th>번호</th>
+            <th>제목</th>
+            <th>보낸이</th>
+            <th>날짜</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>1</td>
+            <td>공지사항 확인 요망</td>
+            <td>관리자</td>
+            <td>2022-06-09</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>2</td>
+            <td>공지사항 확인 요망</td>
+            <td>관리자</td>
+            <td>2022-06-09</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>3</td>
+            <td>공지사항 확인 요망</td>
+            <td>관리자</td>
+            <td>2022-06-09</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>4</td>
+            <td>공지사항 확인 요망</td>
+            <td>관리자</td>
+            <td>2022-06-09</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>5</td>
+            <td>공지사항 확인 요망</td>
+            <td>관리자</td>
+            <td>2022-06-09</td>
+        </tr>
+    </table>
+
+    <script>
+
+        document.form1.btn1.onclick = m1;
+
+        function m1() {
+
+            var cb1 = document.form1.cb1;
+
+            //cb1.checked = true;
+            cb1.checked = !cb1.checked;
+
+        }
+
+        var cbagree = document.all.cbagree;
+        // 방법1. document.all.cbagree.onclick = m2;
+        // 방법2. document.all.cbagree.onchange = m2; > 값이 변할 때 발생
+        cbagree.onchange = m2;
+
+        function m2() {
+            
+            // alert(); > 체크할때 안할때 모두 반응
+            // alert(cbagree.checked); > true or false
+
+            if (cbagree.checked) {
+                //disabled > 비활성화
+                document.all.btnnext.disabled = false;
+            } else {
+                document.all.btnnext.disabled = true;
+            }
+
+        var cball = document.all.cball;
+        var cbitem = document.all.cbitem; //메일들 > 배열
+
+        cball.onchange = m3;
+
+        function m3 () {
+            // if (cball.checked) {
+            //     for (var i=0; i<cbitem.length; i++) {
+            //         cbitem[i].checked = true;
+            //     }
+            // } else {
+            //     for (var i=0; i<cbitem.length; i++) {
+            //         cbitem[i].checked = false;
+            // }
+
+            for (var i=0; i<cbitem.length; i++) {
+                cbitem[i].checked = cball.checked;
+            }
+        }
+
+
+        }
+
+    </script>
+    
+</body>
+</html>
