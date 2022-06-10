@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* form img {
+            width: 200px;
+        } */
+
+        body {
+			margin: 50px;
+		}
+
+    </style>
+
+</head>
+<body>
+
+    <form name="form1">
+        <img src="images/cat01.jpg" name="cat" data-num="01">
+        <img src="images/cat02.jpg" name="cat" data-num="02">
+        <img src="images/cat03.jpg" name="cat" data-num="03">
+        <img src="images/cat04.jpg" name="cat" data-num="04">
+        <img src="images/cat05.jpg" name="cat" data-num="05">
+    </form>
+
+<!--     
+<body oncontextmenu='return false' ondragstart='return false' onselectstart='return false'>
+
+    <div>
+        <img src="images/cat01.jpg" name="img1">
+        <img src="images/cat02.jpg" name="img2">
+        <img src="images/cat03.jpg" name="img3">
+        <img src="images/cat04.jpg" name="img4">
+        <img src="images/cat05.jpg" name="img5">
+    </div>
+
+</body> 
+-->
+    
+    <script>
+    
+        for (var i=0; i<document.images.length; i++) {
+            if (document.images[i].name == 'cat') {
+                document.images[i].onmouseover = overimg;
+                document.images[i].onmouseout = outimg;
+            }
+        }
+
+        function overimg() {
+            event.target.src = 'images/dog'+ event.target.dataset['num'] + '.jpg';
+        }
+
+        function outimg() {
+            event.target.src = 'images/cat'+ event.target.dataset['num'] + '.jpg';
+        }
+
+
+
+
+
+        // window.onload = function () {
+
+        //     var list = document.images;
+
+        //     for (var i = 0; i < list.length; i++) {
+        //         list[i].onmouseover = function () {
+        //             event.srcElement.src = "images/dog0" + getNum(event.srcElement.src) + ".jpg";
+        //         };
+        //         list[i].onmouseout = function () {
+        //             event.srcElement.src = "images/cat0" + getNum(event.srcElement.src) + ".jpg";
+        //         };
+        //     }
+        // };
+
+        // function getNum(url) {
+        //     var index = url.lastIndexOf(".");
+        //     return url.substr(index - 1, 1);
+        // }
+
+    </script>
+
+</body>
+</html>

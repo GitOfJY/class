@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="cat">
+        <img src="images/catty01.png" name="cat">
+        <img src="images/catty02.png" name="cat">
+        <img src="images/catty03.png" name="cat">
+        <img src="images/catty04.png" name="cat">
+        <img src="images/catty05.png" name="cat">
+    </div>
+    
+    
+    <script>
+
+        //마우스를 올리면 고양이 크기를 키우시오.
+        for (var i=0; i<document.images.length; i++) {
+            if (document.images[i].name == 'cat') {
+                document.images[i].onmouseover = mouseimg;
+                }
+        }
+
+        function mouseimg() {
+            event.target.width += 10; 
+        }
+
+
+        //숫자(1~5)를 누르면 고양이 크기를 키우시오.
+        //esc 키를 누르면 크기를 원래대로 줄이시오.
+        window.onkeydown = pressbtn;
+
+        function pressbtn(evt) {
+            // alert(evt.keyCode);
+            if (evt.keyCode == 49 || evt.keyCode == 97) {
+                document.images[0].width += 10;
+            } else if (evt.keyCode == 50 || evt.keyCode == 98) {
+                document.images[1].width += 10;
+            } else if (evt.keyCode == 51 || evt.keyCode == 99) {
+                document.images[2].width += 10;
+            } else if (evt.keyCode == 52 || evt.keyCode == 100) {
+                document.images[3].width += 10;
+            } else if (evt.keyCode == 53 || evt.keyCode == 101) {
+                document.images[4].width += 10;
+            } else if (evt.keyCode == 27) {
+                for (var i=0; i<document.images.length; i++) {
+                    document.images[i].width = 128;
+                }
+            }
+        }
+
+        //고양이를 클릭하면 크기를 원래대로 줄이시오.
+        for (var i=0; i<document.images.length; i++) {
+            if (document.images[i].name == 'cat') {
+                document.images[i].onclick = clickimg;
+                }
+        }
+
+
+        function clickimg() {
+            if (event.target.width != 128) {
+                event.target.width = 128;
+                } 
+        } 
+
+
+    </script>
+
+</body>
+</html>

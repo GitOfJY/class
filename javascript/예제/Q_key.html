@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    form {
+        width: 200px;
+        margin: 20px auto;
+    }
+
+    form > div {
+        margin-bottom: 15px;
+    }
+
+    form > div > input {
+        display: block;
+        margin-bottom: 5px;
+        outline: none;
+    }
+
+    #idcheck { width: 150px; }
+
+    #validtxt { 
+        width: 250px; 
+        border: 0px solid transparent; 
+        outline: none; 
+        color: red; }
+
+    </style>
+
+</head>
+<body>
+    
+    <form name="form1">
+
+        <h1>회원가입</h1>
+
+        <div>아이디 : <input type="text" name="idcheck"></div>
+
+        <input readonly type="text" name="validtxt" id="validtxt">
+
+    </form>
+
+    <script>
+
+        var idcheck = window.document.form1.idcheck;
+        var validtxt = document.form1.validtxt;
+
+        idcheck.onkeyup = checkid;
+    
+        function checkid() {
+
+            if (idcheck.value.length<4) {
+                validtxt.value = '아이디가 너무 짧습니다.';
+            } else if (idcheck.value.length>=4 && idcheck.value.length<=12) {
+                validtxt.value = '아이디가 적절합니다.';
+            } else {
+                validtxt.value = '아이디가 너무 깁니다.';
+            }
+
+        }
+
+        
+
+    </script>
+
+</body>
+</html>
