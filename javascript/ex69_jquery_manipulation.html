@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+</head>
+<body>
+
+    <!-- ex69_jquery_manipulation.html -->
+
+    <h1>jQuery 태그 조작</h1>
+
+    <input type="button" value="버튼1" id="btn1">
+
+    <hr>
+
+    <div id="box">상자</div>
+
+    <hr>
+
+    <input type="text" id="txt1">
+
+    <script>
+
+        $('#btn1').click(function() {
+
+            //콘텐츠 조작
+            //- innerText, textContent > text()
+            //- innerHtml > html()
+            //- value > val()
+
+            // alert($('#box').text());
+            // $('#box').text('홍길동입니다.');
+
+            // $('#box').html('<b>안녕하세요</b>');
+            // $('#box').html('<input type="text">');
+
+            // alert($('#txt1').val());
+            // $('#txt1').val('하하하');
+            
+
+
+            //속성 조작
+            //- obj.prop  >  BOM 읽기
+            //- obj.prop = 값;  >  BOM 쓰기
+            //- obj.getAttribute('prop')  >  DOM 읽기
+            //- obj.setAttribute('prop', value)  >  DOM 쓰기
+
+            //HTML 속성을 조작하는 메소드
+            //- obj.attr('prop')
+            //- obj.attr('prop', value)
+
+            //JavaScript 프로퍼티(속성)을 조작하는 메소드
+            //- obj.prop('prop')
+            //- obj.prop('prop', value)
+
+            //$('#txt1').attr('size', 50);
+            //$('#txt1').prop('size', 50);
+
+            //attr & prop 헷갈림 > 그냥 두 개 다 해보기
+            //보편적으로 attr 사용하고 안되는것을 prop 사용
+
+            // $('#txt1')
+            //     .attr('size', 50)
+            //     .attr('maxlength', 10);
+
+            // $('#txt1').attr({
+            //     size: 50,
+            //     maxlength: 10
+            // });
+
+            // alert($('#txt1').attr('size')); > undefined
+            // alert($('#txt1').prop('size')); > 20
+            // 초기값을 javascript에서만 알고있다. html은 모르고 (태그와 속성마다 다르기 때문에 attr, prop 둘 다 해보기)
+
+            // alert($('#txt1').attr());
+            // alert($('#txt1').prop());
+            // 매개변수(인자값)가 없는 경우에는 작동 안 함
+
+
+            // $('#box')
+            //     .attr('title', '상자')
+            //     .css('color', 'blue')
+            //     .text('Box')
+            //     .click(function() {
+            //         alert('클릭');
+            //     });
+            // 작동은 하지만 권장하지 않음 > 정신없는 코드
+
+
+
+            //태그 추가
+            //box.innerHtml += 고양이 (한 번 더 클릭했을 때 고양이 누적)
+            // $('#box').html('<img src="images/catty01.png">');
+            // $('#box').html(읽기전용 + 누적);
+            // $('#box').html($('#box').html() + '<img src="images/catty01.png">');
+
+            // $('#box').append('<img src="images/catty01.png">');
+
+            n++;
+            // $('#box').append('<img src="images/catty0${n}.png">');
+            // $('#box').prepend('<img src="images/catty0${n}.png">');
+
+            // $('#box')
+            //     .append('<img src="images/catty0${n}.png">')
+            //     .css('border', '1px solid black');
+
+
+            //obj화 먼저 시키면 js객체로 만들어짐
+            // $('#box').append(
+            //     $('<img src="images/catty0${n}.png">')
+            //         .css('border', '1px solid black')
+            //         .click(function() {
+            //             alert(this.src);
+            //         })
+            // );
+
+
+            // 똑같은 코드
+            //부모.append(자식)
+            // $('#box').append('<img src="images/catty0${n}.png">');
+            //자식.appendTo(부모)
+            // $('<img src="images/catty0${n}.png">').appendTo($('#box'));
+
+            //부모.prepend(자식)
+            // $('#box').prepend('<img src="images/catty0${n}.png">');
+            //자식.prependTo(부모)
+            // $('<img src="images/catty0${n}.png">').prependTo($('#box'));
+
+            // $('<img src="images/catty0${n}.png">')
+            //     .css('border', '1px solid black')
+            //     .click(function() {
+            //             alert(this.src);
+            //         })
+            //     .appendTo($('#box'));
+            //jQuery에서 태그를 동적으로 추가하는 방법
+
+            //body 태그 찾는 법
+            // $('body')
+            // $(document.body)
+            
+            //태그 삭제
+            // $('#box').remove();
+            // $('input').remove();
+
+        });
+
+        let n =0;
+
+    </script>
+    
+</body>
+</html>
