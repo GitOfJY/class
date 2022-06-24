@@ -28,9 +28,13 @@
         */
 
 
-        let n1;
 
-        function f1() {
+
+
+        //1. 함수를 변수나 데이터 구조에 담을 수 있다.
+        let n1; //변수
+
+        function f1() { //함수
             console.log('f1');
         }
 
@@ -45,16 +49,23 @@
 
         //f1 함수를 n1에 변수에 대입
         n1 = f1; //함수가 정의된 주소값을 복사한다.
-        console.log(typeof n1); //??? > function
+        console.log(typeof n1); //function
 
         //n1이라는 변수를 함수처럼 취급해서 함수 호출을 했다.
-        n1(); //*** 이상하게 보이는 구문 > f1
+        n1(); //*** 이상하게 보이는 구문(변수()) > f1
 
 
-        //btn1.onclick = m1;
+        //btn1.onclick = m1; 
+        //>> onclick(이벤트,멤버변수,프로퍼티)에 m1(함수)를 넣은 것
+        //javaScript가 함수를 객체 취급했기 때문에 가능
+        //함수는 1급 객체이다.
+
+
 
 
         console.clear();
+
+
 
 
         //JavaScript에서 함수를 만드는 방법
@@ -67,6 +78,7 @@
 
         a1();
 
+        //let b1 = a1;
         let b1 = function a1() {
             console.log('a1');
         };
@@ -74,9 +86,8 @@
         b1();
 
 
-
-        
-        //익명 함수는 보통 생성과 동시에 변수에 저장한 뒤 나중에 변수를 통해서 호출한다.
+        //익명함수 (람다식과 유사) > 호출 불가
+        //보통 생성과 동시에 변수에 저장한 뒤 나중에 변수를 통해서 호출한다.
         let b2 = function () {
             console.log('a2');
         };
@@ -84,13 +95,10 @@
         b2();
 
 
-
         (function () {
             console.log('a3');
         })(); //즉시 호출 > 스코프를 임의로 형성하기 위해서
 
-
-        
 
         document.getElementById('btn').onmousedown = m1;
 
@@ -99,17 +107,16 @@
             alert(event.buttons);
         }
 
-        //이부분이 잘못된 행동
+
         //m1(); > 이렇게 독립으로 호출해도 호출이 가능
+        //이 부분 > error > m1을 이벤트(버튼 클릭)가 아닌데 호출
 
 
-        
-        //이벤트 전용 함수 > 안정성 향상
+        //document.getElementById('btn').onmousedown = 익명함수
+        //이벤트 전용 함수 >> 이름으로 호출 불가능 > 안정성 향상 
         document.getElementById('btn').onmousedown = function () {
             alert(event.buttons);
         };
-
-        //??();
 
 
 
@@ -127,6 +134,9 @@
 
 
 
+
+
+        //2. 함수를 매개변수에 전달할 수 있다.
         function a4() {
             console.log('a4');
         }
@@ -136,18 +146,19 @@
             something(); //a4();
         }
 
-        //매개변수로 함수를 전달
+        //매개변수로 함수를 전달(something이라는 변수 안에 a4)
         a5(a4);
-        //a5(a4());
+        //a5(a4()); > a4의 return값(undefined) 전달 > 다른 것
 
         a5(function() {
             console.log('이해?');
-        });
+        }); //익명함수를 매개변수로 > a5, 이해 출력
 
 
 
 
 
+        //3. 함수를 반환값으로 사용할 수 있다.
         function a6() {
             console.log('a6');
         }
@@ -163,10 +174,6 @@
 
 
         a7()();
-
-
-
-
 
 
     </script>
