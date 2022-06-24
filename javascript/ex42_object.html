@@ -57,18 +57,19 @@
 
         // var hong = new Object();
         // let hong = new Object();
+        // 안정성 > const 자주 사용
         const hong = new Object();
 
 
 
 
-        //Java의 HashMap같은 성질
+        //Java의 HashMap같은 성질 (만들면서 동시에 정의)
         //JavaScript의 객체는 프로퍼티(Property)를 자유롭게 생성할 수 있다.
-        hong.name = '홍길동'; //hong 객체에 name 프로퍼티를 정의(추가)
+        hong.name = '홍길동'; //hong 객체에 name 프로퍼티 정의(추가)
         hong.age = 20;
         hong.address = '서울시 강남구';         //작성이 편하고, 가독성 높음.
         hong['address'] = '서울시 동대문구';    //작성이 조금 불편하고, 조작성 높음
-        //hong.home-tel = '010-1234-5678';
+        //hong.home-tel = '010-1234-5678'; > 식별자에 -는 '빼기'로 인식 > 멤버 접근 연산자 형태 불가 > 식별자에 - 되도록 만들지 말 것
         hong['home-tel'] = '010-1234-5678';
 
         console.log(hong);
@@ -92,26 +93,26 @@
 
 
         //const park = new Object();
-        //const park = { name: '박세리', age: 20, address: '서울시 강남구' }; //객체 리터럴
         const park = { 
             name: '박세리', 
             age: 20, 
             address: '서울시 강남구' 
-        };
+        }; //객체 리터럴, ; 조심
 
         console.log(park);
 
 
 
-
+        // 1+2 방법 혼합
         const you = {
             name: '유재석',
             age: 30
-        }; //초기화할 때 사용 가능
+        }; //초기화할 때 사용 가능(방법2)
  
-        you.address = '서울시'; //나중에 추가/삭제 가능
+        you.address = '서울시'; //나중에 추가/삭제 가능(방법1)
 
         console.log(you);
+
 
 
         console.clear();
@@ -130,7 +131,7 @@
         //     age: 30,
         //     sido: '서울시',
         //     gugun: '강동구',
-        //     dong: '천호동'
+        //     dong: '천호동' > 변수를 나누는 것은 올바른 표기법이 아님
         // };
 
         //객체 > 객체
@@ -141,7 +142,7 @@
                 sido: '서울시',
                 gugun: '강동구',
                 dong: '천호동'
-            }
+            } //object를 adress객체 안에 넣은 것
         };
 
 
@@ -149,8 +150,6 @@
         console.log(jung.age);
         console.log(jung.address);
         console.log(jung.address.sido);
-
-
 
 
         const yang = {
