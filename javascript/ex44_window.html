@@ -33,10 +33,11 @@
 
         console.log(typeof now);  //Date 객체       > object
         console.log(typeof hong); //사용자 정의 객체 > object
+        // javaScript는 모든 객체가 object형으로 동일하다.
+
+
+
         console.clear();
-
-
-
 
 
 
@@ -50,8 +51,6 @@
         // window.setTimeout(function() {}, 100);
 
 
-
-
         //*** var 선언한 전역 변수와 전역 함수는 개발자가 의지와 상관없이 무조건 window 객체의 프로퍼티로 등록이 된다.
 
         function f1() {
@@ -62,11 +61,11 @@
 
         };
 
+        //window.f1(); > window 생략 가능
         f1();
 
 
         var num = 100; //전역 변수 > window의 프로퍼티
-
         window.num = 100;
 
         console.log(num);
@@ -91,7 +90,7 @@
         //향상된 for문(X) > 프로퍼티 탐색 도구(O)
         // for (let p in box) {
         //     console.log(p);
-        // }
+        // } > width, height 출력
 
         for (let p in window) {
             console.log(p);
