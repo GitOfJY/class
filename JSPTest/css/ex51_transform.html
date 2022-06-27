@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #mainmenu > img, #footmenu > img {
+            transition: .7s all;
+        }
+
+        #mainmenu {
+            
+            /* 
+            border: 1px solid black; 
+            창 크기 변화에 상관없이 고정하는 방법
+            1. img들 사이 공백 지우기 */
+
+            /* font-size: 0; */
+            border: 0px solid black;
+            width: 630px;
+            margin: 0 auto; 
+            /* 가운데 정렬 */
+
+            transform: translate(0px, -100px);
+        }
+
+        #mainmenu > img {
+            
+            /* 
+            2. img들 사이 공백 지우기 
+            - 부모 영역이 없어짐 > clear
+            */
+
+            float: left;
+        }
+
+        #mainmenu::after {
+            content: '';
+            display: block;
+            clear: both;
+            /* nav태그가 float로 인해 인식 못했던 자식을 인식하게 해줌 */
+        }
+
+        /* #mainmenu:hover {
+            transform: translate(0px, -10px);
+        } */
+
+        #mainmenu > img:hover {
+            /* transform: translate(0px, -10px); */
+            /* 부모가 움직인거고 이미지는 그대로, 90px로 해야 내려옴 */
+            transform: translate(0px, 90px);
+        }
+
+
+        #footmenu {
+            border: 0px solid black;
+            width: 630px;
+            /* margin: 0 auto; 
+            position > margin 효과 없어짐 */
+            
+            position: fixed;
+            /* left: 0; */
+            /* right: 0; */
+            bottom: 0;
+            left: calc(50% - 315px); /*가운데정렬1*/
+            /* 가운데정렬2 > margin 0 + left/right 0 */
+
+            transform: translate(0px, 90px);
+            /* bottom: -90; 으로 해도 똑같음*/
+        }
+
+        #footmenu > img {
+            float: left;
+        }
+
+        #footmenu::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        #footmenu > img:hover {
+            transform: translate(0px, -90px);
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <!--  ex51_transfrom.html  -->
+
+    <nav id="mainmenu">
+        <!-- img[src=images/rect_icon0$.png]*5 -->
+        <img src="images/rect_icon01.png" alt="">
+        <img src="images/rect_icon02.png" alt="">
+        <img src="images/rect_icon03.png" alt="">
+        <img src="images/rect_icon04.png" alt="">
+        <img src="images/rect_icon05.png" alt="">
+    </nav>
+
+    <nav id="footmenu">
+        <img src="images/rect_icon01.png" alt="">
+        <img src="images/rect_icon02.png" alt="">
+        <img src="images/rect_icon03.png" alt="">
+        <img src="images/rect_icon04.png" alt="">
+        <img src="images/rect_icon05.png" alt="">
+    </nav>
+
+</body>
+</html>
