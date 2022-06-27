@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* h2#title { color: orange; } */
+        /* *#title { color: orange; } */
+        #title { color: orange; }
+
+        /* p.test { color: red; } */
+        /* *.test { color: red; } */
+        .test { color: red; }
+
+    </style>
+
+</head>
+<body>
+
+    <!--  ex04_selector.html  -->
+
+    <!--  
+
+        CSS 선택자
+
+        3. ID 선택자
+        - 태그에 명시된 id 속성을 검색해서 태그를 검색
+        - 태그명#ID
+        - 원하는 태그를 직접 선택할 수 있다.
+        - 일괄적용이 안된다. > ID는 유일하기 때문
+
+        4. 클래스 선택자
+        - 태그에 명시된 class 속성을 사용해서 태그를 검색
+        - 태그명.클래스명
+        - .클래스명
+
+        
+        1. 전체 선택자
+        ------------------
+        2. 태그 선택자
+        3. ID 선택자
+        4. 클래스 선택자
+        ------------------
+        5. 나머지
+            - 2~4 조합해서 구성
+
+    -->
+
+    <h1 class="test">h1 입니다.</h1>
+
+    <p class="test">p 입니다.</p>
+    <p>p 입니다.</p>
+    <p class="test">p 입니다.</p>
+    <p class="test">p 입니다.</p>
+    <p>p 입니다.</p>
+
+    <div class="test">div 입니다.</div>
+    <div>div 입니다.</div>
+    <div>div 입니다.</div>
+
+    <h2>h2 입니다.</h2>
+    <!-- 
+        <p id="title">p 입니다.</p>
+        id > 유일한 식별자, 절대 사용 안됨
+    -->
+    <p>p 입니다.</p>
+
+    <!--  사용자 정의 식별자 : name=""(순수한 html에서만 사용) id="" class="" -->
+    <h2 id="title">h2 입니다.</h2>
+    <p>p 입니다.</p>
+
+    <hr>
+
+    <h2>회사 소개</h2>
+    <p>오시는 길: 길 소개</p>
+    
+</body>
+</html>

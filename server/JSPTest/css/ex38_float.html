@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        span:nth-child(1) { 
+            color: tomato;
+            float: left;
+        }
+
+        span:nth-child(2) { 
+            color: orange;
+            float: left;
+        }
+
+        span:nth-child(3) { 
+            color: cornflowerblue;
+            float: left; 
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            /* display: inline-block; */
+            float:left;
+            /* float > 요소들이 인라인의 성질을 가지게 된다. */
+        }
+
+        #box1 { background-color: tomato;}
+        #box2 { background-color: orange;}
+        #box3 { background-color: gold;}
+        #box4 { background-color: green;}
+        #box5 { background-color: blue;}
+        #box6 { background-color: purple;}
+        #box7 { background-color: pink;}
+
+        /*
+        #list { font-size: 0; }
+
+        #list > .box {
+            font-size: 1rem;
+        }
+        */
+        
+        #list::after {
+            content: 'AAA';
+        }
+
+        /* <div style='clear:both;'></div> */
+        #list::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        #list {
+            /* border: 10px solid black; */
+            width: 700px
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <!--  ex38_float.html  -->
+
+    <p>Lorem ipsum dolor <span>sit</span> amet <span>consectetur </span>adipisicing elit. Velit voluptatibus dolores atque, ab amet sed recusandae, <span>molestias</span> officiis non voluptatem id est sequi optio ullam, vero autem <span>saepe</span> ex dolorum!</p>
+
+    <hr>
+
+    <div id="list">
+        <div id="box1" class="box">빨</div>
+        <div id="box2" class="box">주</div>
+        <div id="box3" class="box">노</div>
+        <div id="box4" class="box">초</div>
+        <div id="box5" class="box">파</div>
+        <div id="box6" class="box">보</div>
+        <div id="box7" class="box">분</div>
+        <!-- <div style="clear: both;"></div> -->
+    </div>
+
+    <h1>다른 내용들</h1>
+
+</body>
+</html>

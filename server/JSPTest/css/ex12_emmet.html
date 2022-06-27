@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--  ex12_emmet.html  -->
+
+    <!--  
+
+        Emmet, Zen-Coding
+        - CSS 선택자 문법을 사용해서 HTML/CSS 코드를 손쉽게 작성하는 기능
+        - 생산성 도구
+        - https://emmet.io
+
+    -->
+
+    <h1>태그 선택자</h1>
+
+    div {}
+
+    <div></div>
+
+    p
+    <p></p>
+
+    a
+    <a href="URL">PCDATA</a>
+    <a href="URL">PCDATA</a>
+
+    img
+    <img src="URL" alt="텍스트">
+
+    input
+    <input type="text">
+
+
+
+
+    <h1>ID 선택자</h1>
+
+    <div id="box"></div>
+
+    div#box {}
+    <div id="box"></div>
+
+    h#title
+    <h id="title"></h>
+
+
+
+
+    <h1>Class 선택자</h1>
+    
+    <div class="box"></div>
+
+    div.box{}
+    <div class="box"></div>
+
+    a.link
+    <a href="URL" class="link">Text</a>
+
+    img.cat
+    <img src="고양이.jpg" alt="고양이" class="cat">
+
+    div.one.two.three {}
+    <div class="one two three"></div>
+
+    div#box1.box
+    <div id="box1" class="box"></div>
+
+    img#cat1.pic.animal
+    <img src="" alt="" id="cat1" class="pic animal">
+
+
+
+
+    <h1>속성 선택자</h1>
+
+    div[title] {}
+    <div title=""></div>
+
+    div[title]
+    <div title=""></div>
+
+    <div title="상자"></div>
+    div[title=상자]
+    <div title="상자"></div>
+    
+    img[width height]
+    <img src="a" alt="b" width="c" height="d">
+
+    img[width=250 height=200]
+    <img src="a" alt="b" width="250" height="200">
+
+    img[src=images/dog01.jpg alt=강아지 width=250 height=200]
+    <img src="images/dog01.jpg" alt="강아지" width="250" height="200">
+
+    img#dog01.dog[width=200]
+    <img src="" alt="" id="dog01" class="dog" width="200">
+
+
+
+
+    <h1>PCDATA</h1>
+
+    div {}
+    <div>상자</div>
+
+    div{상자}
+    <div>상자</div>
+
+    div#box1.box[title=상자]{상자입니다.}
+    <div id="box1" class="box" title="상자">상자입니다.</div>
+
+
+
+    <hr>
+
+
+
+    div*5
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    div.item*5
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+
+    div.item[title]{아이템}*5
+    <div class="item" title="">아이템</div>
+    <div class="item" title="">아이템</div>
+    <div class="item" title="">아이템</div>
+    <div class="item" title="">아이템</div>
+    <div class="item" title="">아이템</div>
+
+    div#box1{상자}*5
+    <div id="box1">상자</div>
+    <div id="box1">상자</div>
+    <div id="box1">상자</div>
+    <div id="box1">상자</div>
+    <div id="box1">상자</div>
+
+    div#box${상자}*5
+    <div id="box1">상자</div>
+    <div id="box2">상자</div>
+    <div id="box3">상자</div>
+    <div id="box4">상자</div>
+    <div id="box5">상자</div>
+
+    div#box$${상자}*5
+    <div id="box01">상자</div>
+    <div id="box02">상자</div>
+    <div id="box03">상자</div>
+    <div id="box04">상자</div>
+    <div id="box05">상자</div>
+
+    div#box$${상자$}*5
+    <div id="box01">상자1</div>
+    <div id="box02">상자2</div>
+    <div id="box03">상자3</div>
+    <div id="box04">상자4</div>
+    <div id="box05">상자5</div>
+
+    <h1>형제 선택자</h1>
+
+    a + b : 바로 위의 형제 > 지원 O
+    a ~ b : 위의 형제 > 지원 X
+
+    div+p
+    <div></div>
+    <p></p>
+
+    div~p
+
+    <div></div>
+    <p></p>
+
+    <div></div>
+    <a></a>
+    <p></p>
+
+    <div></div>
+    <i></i>
+    <b></b>
+    <p></p>
+
+    h1+p+p+p
+    <h1></h1>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    h1+p*3
+    <h1></h1>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    (h1+p)*3
+    <h1></h1>
+    <p></p>
+    <h1></h1>
+    <p></p>
+    <h1></h1>
+    <p></p>
+
+    h1#title1.title{제목입니다.}+p.content{설명입니다.}*3
+    <h1 id="title1" class="title">제목입니다.</h1>
+    <p class="content">설명입니다.</p>
+    <p class="content">설명입니다.</p>
+    <p class="content">설명입니다.</p>
+
+
+
+    cat01.jpg ~ cat06.jpg
+    (img[src=images/cat0$.jpg alt=고양이$ title=고양이$ width=250]+br)*6
+    <img src="images/cat01.jpg" alt="고양이1" title="고양이1" width="250"><br><img src="images/cat02.jpg" alt="고양이2" title="고양이2" width="250"><br><img src="images/cat03.jpg" alt="고양이3" title="고양이3" width="250"><br><img src="images/cat04.jpg" alt="고양이4" title="고양이4" width="250"><br><img src="images/cat05.jpg" alt="고양이5" title="고양이5" width="250"><br><img src="images/cat06.jpg" alt="고양이6" title="고양이6" width="250"><br>
+
+
+    <h1>자식 선택자</h1>
+    a > b : 자식
+    a   b : 자손
+
+    div>a
+    <div><a href=""></a></div>
+
+    div a
+
+    ul>li*5
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    ul>li.item*5
+    ul#list>li.item{항목$}*5
+    h1{오늘의 할일}+ul#list>li.item{항목$}*5
+
+    table>tr>td
+    table>tr*10>td*5
+    table#tbl1>tr*10>td.cell${항목$}*5
+
+    <h1>제목입니다.</h1>
+
+    <p>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>
+    <p>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>
+    <p>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 </p>
+
+
+
+
+    Lorem Ipsum
+
+    lorem
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime maiores aperiam asperiores impedit architecto, nisi culpa tempore numquam aliquid debitis odit quod nobis voluptatem deserunt illo hic! Quibusdam, ab at!
+
+    lorem5
+    Lorem ipsum dolor sit amet.
+
+
+    h1{제목입니다.}
+    <h1>제목입니다.</h1>
+
+    h1{lorem5}
+    <h1>lorem5</h1>
+
+    h1>lorem5
+    <h1>Lorem ipsum dolor sit amet.</h1>
+
+    h1>lorem8+p>lorem50*3
+    <h1>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        <p><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam ipsum odio error. Qui vitae et quos necessitatibus tempore laborum est neque adipisci alias sunt, ab eos modi nihil officiis! In, ratione. Error sed non temporibus laudantium labore, nesciunt necessitatibus voluptatum enim tempore incidunt distinctio dolorem omnis consequuntur ipsam nulla alias.</span><span>Ipsa, provident! Nesciunt quo eveniet, molestias laboriosam rerum earum explicabo vel facilis reiciendis repudiandae. Numquam similique, laborum optio quisquam, placeat veniam possimus ut sit sint asperiores sequi blanditiis! Impedit iste soluta odio quos corrupti consequuntur, fuga molestias minus voluptatibus eveniet quidem itaque adipisci nulla. Ab iure nostrum rem excepturi dolor!</span><span>Animi vitae enim corrupti at nisi minima quidem possimus optio, ad nihil ipsa fuga cumque harum suscipit. Blanditiis quisquam repudiandae rem tempora, corrupti earum deleniti vel esse nihil quibusdam? Optio error ut quos eos placeat molestiae ullam at. Blanditiis nam incidunt quam atque architecto delectus ad repudiandae reprehenderit optio ducimus.</span></p>
+    </h1>
+
+    (h1>lorem8)+(p>lorem50)*3
+    <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi mollitia sapiente iusto laborum qui repellendus dolore nihil optio quod rem? Tenetur totam excepturi obcaecati autem voluptatibus eius nesciunt suscipit quasi placeat modi. Recusandae quia delectus tempore minima dolores, aliquid a reprehenderit, quisquam voluptatem exercitationem necessitatibus commodi aliquam temporibus laboriosam aperiam?</p>
+    <p>Unde cumque neque atque, iste laudantium dolores dignissimos, excepturi quia magni temporibus amet qui porro quae aliquam totam tenetur ut? Ducimus suscipit sequi velit fugit provident, nulla eius dolor voluptatibus aspernatur nesciunt iste voluptates cumque. Quo nam autem perspiciatis, incidunt assumenda voluptate in rerum vitae possimus ipsam unde, voluptatum ullam.</p>
+    <p>Possimus perferendis neque facere dolores aperiam. Optio est nam, saepe consequuntur ullam numquam fugit odio ipsa totam quibusdam autem. Delectus perspiciatis nisi deleniti quis excepturi nostrum, ab accusantium exercitationem dolores, ratione doloribus itaque? Velit cumque nam repellat modi doloremque facere, voluptas quod soluta dicta saepe odit, est unde in incidunt?</p>
+
+</body>
+</html>

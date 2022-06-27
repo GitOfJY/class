@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        i.icon {
+            font-size: 5em;
+            color: tomato;
+            /* border: 1px solid black; */
+            width: 100px;
+            text-align: center;
+            display: block;
+            /* margin: 300px auto; */
+            /* block으로 만들면 margin을 이용한 가운데 정렬 가능 */
+
+            transform: scale(100, 100);
+            opacity: 0;
+
+            animation-name: key-icon;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-fill-mode: ease-out;
+        }
+
+        @keyframes key-icon {
+            from {transform: scale(100, 100); opacity:0;}
+            to {transform: scale(1, 1); opacity:1;}
+        }
+
+        i.icon:nth-child(1) {
+            color: tomato;
+            margin: 0 auto;
+            margin-top: 400px;
+            animation-delay: 0s;
+        }
+
+        i.icon:nth-child(2) {
+            color: gold;
+            margin: 0 auto;
+            margin-top: 50px;
+            animation-delay: 0.7s;
+        }
+
+        i.icon:nth-child(3) {
+            color: cornflowerblue;
+            margin: 0 auto;
+            margin-top: 50px;
+            animation-delay: 1.4s;
+        }
+
+    </style>
+
+    <script src="https://kit.fontawesome.com/099b619186.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <!--  ex57_animation.html  -->
+
+    <i class="fa-brands fa-html5 icon"></i>
+    <i class="fa-brands fa-css3 icon"></i>
+    <i class="fa-brands fa-js-square icon"></i>
+    
+</body>
+</html>
