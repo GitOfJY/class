@@ -1,0 +1,14 @@
+/*memo. css*/
+
+main {
+	width: 600px;
+	margin: 0 auto;
+}
+
+header h1 {
+	border-bottom: 1px solid #999;
+}
+
+section {
+	margin-top: 30px;
+}
