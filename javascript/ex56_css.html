@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #menu {
+
+            /* border: 1px solid black; */
+            display: flex;
+            width: 630px;
+
+            /* 가운데 정렬 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+
+            transform: translate(0px, -100px);
+
+        }
+
+        #menu img {
+            transition: .5s all;
+        }
+
+        main {
+            width: 1000px;
+            margin: 100px auto;
+        }
+
+    </style>
+
+    <script>
+        
+        //const item = document.getElementById('menu').children; > getElementById('menu') > null > 실행 순서 때문 > 해결 방법 2가지
+
+        //1. <body onload="">
+        //- <body> 태그가 브라우저에 의해서 실행되고 난 직후
+        function init() {
+            //alert();
+            const item = document.getElementById('menu').children;
+        }
+
+        //2.
+        //window.onload = function() {}; > 보편적 사용
+        //window.document.onload = function() {};
+        //window.document.body.onload = function() {};
+
+
+        let olditem = null;
+
+        window.onload = function() {
+          
+            //alert();
+          
+            const item = document.getElementById('menu').children;
+
+            for (let i=0; i<item.length; i++) {
+
+                item[i].onclick = function(event) {
+
+                    if (olditem != null) { //열려있는 메뉴가 있다면?
+                        olditem.style.transform = 'translate(0px, 0px)';
+                    }
+
+                    if (event.target != olditem) {
+                      event.target.style.transform = 'translate(0px, 90px)';
+                       olditem = event.target;
+                    } else {
+                       event.target.style.transform = 'translate(0px, 0px)';
+                       olditem = null;
+                    }
+
+                };
+
+            }
+
+        };
+
+    </script>
+
+</head>
+<!--<body onload="init();">-->
+<body>
+    
+    <!--  ex56_css.html  -->
+
+    <nav id="menu">
+        <img src="images/rect_icon01.png">
+        <img src="images/rect_icon02.png">
+        <img src="images/rect_icon03.png">
+        <img src="images/rect_icon04.png">
+        <img src="images/rect_icon05.png">
+    </nav>
+
+    <main>
+        <h1>Title</h1>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A quidem ipsam mollitia, incidunt, excepturi quo nulla hic quibusdam fugit accusamus inventore in corrupti nam error cumque ea eos, enim veniam!</p>
+        <p>Aliquam error commodi quisquam vitae provident aperiam dolores suscipit, est, soluta modi, maxime illo porro libero ab odit quibusdam nemo ullam reprehenderit sint possimus magni voluptas! Debitis atque deleniti magnam.</p>
+        <p>Error incidunt alias aliquam! Nulla vitae minima voluptate odit sequi recusandae, sed nisi dolore, reprehenderit a voluptatibus! Quibusdam a ullam earum amet pariatur veritatis optio velit, perspiciatis quasi eius nisi!</p>
+        <p>Debitis culpa laborum provident inventore quas ad incidunt molestias illo dolorem. Doloribus nemo dignissimos obcaecati rerum. Sunt non error suscipit? Porro ipsa dolore ex mollitia dignissimos odio aperiam nam saepe.</p>
+        <p>Totam repellat ex architecto ad soluta. Reiciendis culpa provident quos facilis minus, officiis iste aliquid, eum sequi consequatur debitis fugit? Architecto id harum autem quos tenetur veniam cupiditate, tempore laboriosam.</p>
+        <p>Incidunt debitis accusamus repellendus dignissimos maiores sapiente nesciunt, explicabo a officia atque, est accusantium doloremque perferendis praesentium mollitia eligendi qui assumenda officiis at similique! Reiciendis asperiores delectus ab beatae ratione.</p>
+        <p>Consequuntur incidunt obcaecati voluptatibus voluptas, vel ad similique quos repudiandae, ab ea dolor. Neque maiores eos labore, dolores, recusandae natus iure blanditiis quae iusto voluptas vitae excepturi, dolor eum voluptate?</p>
+        <p>Impedit repellendus distinctio nam alias totam ut labore expedita quia reiciendis rem ad tempora aliquam, unde accusamus cum vero voluptas ratione quos inventore est voluptatum repellat. Quod facere vero omnis?</p>
+        <p>Ullam accusantium porro facere harum officiis veritatis dolor suscipit id iste ex! Perspiciatis consequuntur odit voluptatem. Delectus pariatur nisi consectetur sed quibusdam! Iste architecto provident amet eum exercitationem, facilis necessitatibus?</p>
+        <p>Reiciendis nesciunt quam optio obcaecati libero fugit molestiae eum vero, dolore minus itaque deleniti temporibus ex saepe exercitationem ad velit veritatis quos deserunt eveniet labore. Quaerat at labore modi enim?</p>
+    </main>
+
+</body>
+</html>

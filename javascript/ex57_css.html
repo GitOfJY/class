@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #box {
+            width: 250px;
+            height: 188px;
+            border: 10px solid cornflowerblue;
+            overflow: hidden; /*사진 겹쳐지기*/
+        }
+
+        #list {
+            width: 1250px;
+            display: flex; /*사진끼리 여백 없애기*/
+            /* outline: 5px solid tomato; */
+            transition: .7s all;
+        }
+
+        #family {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-bottom: 300px;
+        }
+
+        #family tr:nth-child(1) td:nth-child(1) {
+            width: 300px;
+            height: 200px;
+            /* border: 10px solid blue; */
+            /*보통 자식이 부모보다 크면 빠져나가지만 table은 예외*/
+            /* overflow: hidden; > 적용 안됨 */
+            /* img 부모를 td가 아니라 다른 태그 생성해서 바꾸기*/
+        }
+
+        #family tr:nth-child(1) td:nth-child(1) div {
+            width: 500px;
+            height: 400px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        /* #vslide {
+            transform: rotate(90deg);
+            width: 400px;
+        } > 우선순위 때문에 width 적용 안됨 > 태그 선택자 붙이기*/
+
+        #family #vslide {
+            transform: rotate(90deg);
+            width: 400px;
+        }
+
+        #family input[type=range] {
+            margin: 20px 0;
+            width: 500px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <!--  ex57_css.html  -->
+
+    <h1>고양이</h1>
+
+    <div id="box">
+        <div id="list">
+            <img src="images/cat01.jpg">
+            <img src="images/cat02.jpg">
+            <img src="images/cat03.jpg">
+            <img src="images/cat04.jpg">
+            <img src="images/cat05.jpg">
+        </div>
+    </div>
+
+
+    <hr>
+
+
+    <select id="sel">
+        <option value="1">고양이1</option>
+        <option value="2">고양이2</option>
+        <option value="3">고양이3</option>
+        <option value="4">고양이4</option>
+        <option value="5">고양이5</option>
+    </select>
+
+
+    <hr>
+
+
+    <input type="range" id="range" min="0" max="4" value="0" style="width:300px;">
+
+
+    <hr>
+
+
+    <h1>Donald Duck</h1>
+
+    <table id="family">
+        <tr>
+            <td><div><img src="images/donaldduck.jpg" id="donald"></div></td>
+            <td><input type="range" id="vslide"></td>
+        </tr>
+        <tr>
+            <td><input type="range" id="hslide"></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+
+
+    <script>
+
+        const box = document.getElementById('box');
+        const list = document.getElementById('list');
+
+        // box.onmouseover = function() {
+        //     list.style.transform = 'translate(-250px, 0px)';
+        // };
+
+        let dist = 0;
+
+        box.onclick = function() {
+            dist += 250;
+            list.style.transform = `translate(-${dist}px, 0px)`;
+         }; 
+
+
+
+
+        const sel = document.getElementById('sel');
+        
+        sel.onchange = function() {
+            //alert(sel.value);
+            //dist = (sel.value-1)*250;
+            dist = sel.selectedIndex * 250;
+            list.style.transform = `translate(-${dist}px, 0px)`;
+        };
+
+
+
+
+        const range = document.getElementById('range');
+
+        range.onchange = function() {
+            dist = range.value * 250;
+            list.style.transform = `translate(-${dist}px, 0px)`;
+        };
+
+
+
+
+        const donald = document.getElementById('donald');
+        const vslide = document.getElementById('vslide');
+        const hslide = document.getElementById('hslide');
+
+        //alert(donald.width); > 0
+
+        //해결 방법 1
+        // setTimeout(function() {
+        //     alert(donald.width);
+        // }, 1000); > 1354
+
+        //해결 방법 2
+        // window.onload = function() {}
+        // donald.onload = function() {
+        //     alert(donald.width); > 1354
+        // };
+
+        donald.onload = function() {
+            
+            //alert(donald.width);
+
+            hslide.min = 0;
+            hslide.max = donald.width - 500;
+            hslide.value = 0;
+
+            vslide.min = 0;
+            vslide.max = donald.height - 400;
+            vslide.value = 0;
+
+        };
+
+        // hslide.onchange = function() {
+        //     donald.style.transform = `translate(-${hslide.value}px, 0px)`;
+        // }; > 입력이 끝나고 난 뒤 event 발생 > 부자연스러움
+
+        hslide.oninput = function() { //입력과 동시에 event 발생
+            donald.style.transform = `translate(-${hslide.value}px, -${vslide.value}px)`;
+        };
+
+        vslide.onchange = function() {
+            donald.style.transform = `translate(-${hslide.value}px, -${vslide.value}px)`;
+        };
+
+    </script>
+    
+</body>
+</html>
