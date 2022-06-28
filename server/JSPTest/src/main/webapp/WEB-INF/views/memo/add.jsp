@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<%@ include file="/example/inc/asset.jsp" %>
+<%@ include file="/WEB-INF/views/memo/inc/asset.jsp" %>
 
 <style>
 
@@ -17,11 +17,43 @@
 </head>
 <body>
 
-	<!--  add.jsp  -->
+	<!-- template.jsp > add.jsp -->
 	
-	<div class="container">
-	
-	</div>
+	<main>
+		<%@ include file="/WEB-INF/views/memo/inc/header.jsp" %>
+		<section>
+			
+			<!-- <form method="POST" action="데이터수신 페이지(서블릿 주소 > 절대 경로 사용)"> -->
+			<form method="POST" action="/jsp/memo/addok.do">
+				
+				<table class="table table-bordered add">
+					<tr>
+						<th>제목</th>
+						<td><input type="text" name="subject" class="form-control" required></td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td><textarea name="content" class="form-control" required></textarea></td>
+					</tr>
+					<tr>
+						<th>이름</th>
+						<td><input type="text" name="name" class="form-control" required></td>
+					</tr>
+					<tr>
+						<th>암호</th>
+						<td><input type="password" name="pw" class="form-control" required></td>
+					</tr>
+				</table>
+				
+				<div class="btns">
+					<input type="button" value="돌아가기" class="btn btn-secondary" onclick="location.href='/jsp/memo/list.do';">
+					<input type="submit" value="메모쓰기" class="btn btn-primary">
+				</div>
+				
+			</form>
+			
+		</section>
+	</main>
 	
 	<script>
 	
