@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<%@ include file="/example/inc/asset.jsp" %>
+<%@ include file="/WEB-INF/views/memo/inc/asset.jsp" %>
 
 <style>
 
@@ -17,11 +17,39 @@
 </head>
 <body>
 
-	<!-- list.jsp -->
+	<!-- template.jsp > list.jsp -->
 	
-	<div class="container">
-	
-	</div>
+	<main>
+
+		<%@ include file="/WEB-INF/views/memo/inc/header.jsp" %>
+		
+		<section>
+		
+			<c:forEach items="${list}" var="dto">
+			<table class="table table-bordered item">
+				<tr>
+					<th>번호</th>
+					<%-- <td><%= dto.getSeq() %></td> --%>
+					<td>${dto.seq}</td>
+					<th>이름</th>
+					<td>${dto.name}</td>
+					<th>날짜</th>
+					<td>${dto.regdate}</td>
+				</tr>
+				<tr>
+					<th>제목</th>
+					<td colspan="5">${dto.subject}</td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td colspan="5">${dto.content}</td>
+				</tr>
+			</table>
+			</c:forEach>
+			
+		</section>
+		
+	</main>
 	
 	<script>
 	

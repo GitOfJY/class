@@ -5,5 +5,5 @@
 <link rel="stylesheet" href="/jsp/asset/css/bootstrap.css" />
 <link rel="stylesheet" href="/jsp/asset/css/memo.css" />
 
-<script src="/jsp/asset/jquery-1.12.4.js"></script>
-<script src="/jsp/asset/js/bootsrtap.js"></script>
+<script src="/jsp/asset/js/jquery-1.12.4.js"></script>
+<script src="/jsp/asset/js/bootstrap.js"></script>
