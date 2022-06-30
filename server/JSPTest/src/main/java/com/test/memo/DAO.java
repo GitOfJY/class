@@ -6,8 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.test.jsp.DBUtil;
-
+//***** DAO의 업무 메소드(add, list 등)는 하나의 업무 메소드에서는 하나의 업무만 진행한다
 public class DAO {
 	
 	private Connection conn;
@@ -15,12 +14,12 @@ public class DAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 	
-	
 	public DAO() {
 		
 		conn = DBUtil.open();
-	
+		
 	}
+
 
 	
 	//AddOk라는 서블릿이 입력받은 데이터(dto)를 줄테니 insert해라
@@ -30,7 +29,7 @@ public class DAO {
 		try {
 			
 			//insert 쿼리 짜기 > JDBC 수업 복습하기
-			String sql = "insert into tblMemo (seq, subject, content, name, pw, regdate) values (seqMemo.nextVal, ?, ?, ?, ?, default)";
+			String sql = "insert into tblMemo (seq, subject, content, name, pw, regdate) values (seqMemo.nextVal, ?, ?, ?, ?, default)";	
 			
 			pstat = conn.prepareStatement(sql);
 			
@@ -53,7 +52,7 @@ public class DAO {
 
 
 	
-	//List 서블릿이 메모 목록 요구
+	//List 서블릿이 메모 목록 요청
 	public ArrayList<DTO> list() {
 		
 	try {
@@ -93,6 +92,112 @@ public class DAO {
 		
 		return null;
 	
+	}
+
+
+	//Edit 서블릿이 메모 번호 전달하면 레코드 전체 반환 요청
+	public DTO get(String seq) {
+		
+		try {
+		
+			String sql = "select * from tblMemo where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			rs = pstat.executeQuery();
+			
+			DTO dto = new DTO();
+			
+			if (rs.next()) {
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setContent(rs.getString("content"));
+				dto.setName(rs.getString("name"));
+				dto.setRegdate(rs.getString("regdate"));
+				
+			}
+			
+			return dto;
+			
+		} catch (Exception e) {
+			System.out.println("DAO.get");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+
+	//EditOk 서블릿에서 수정할 DTO 넘겨주면 수정하기
+	public int edit(DTO dto) {
+		
+		try {
+			
+			String sql = "update tblMemo set subject = ?, content = ?, name = ? where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, dto.getSubject());
+			pstat.setString(2, dto.getContent());
+			pstat.setString(3, dto.getName());
+			pstat.setString(4, dto.getSeq());
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("DAO.edit");
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	
+	//EditOk 서블릿이 메모 번호와 입력 암호를 줄테니 이게 맞는건지 확인 요청
+	public boolean check(DTO dto) {
+
+		try {
+				
+			String sql = "select count(*) as cnt from tblMemo where seq = ? and pw = ?";
+				
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getSeq());
+			pstat.setString(2, dto.getPw());
+				
+			rs = pstat.executeQuery();
+				
+			if (rs.next()) {	
+				return rs.getInt("cnt") == 1 ? true : false;				
+			}
+				
+		} catch (Exception e) {
+			System.out.println("DAO.check");
+			e.printStackTrace();
+		}
+			return false;
+		}
+
+
+	//DelOk 서블릿이 seq를 전달하니 삭제 요청
+	public int del(String seq) {
+		
+		try {
+			
+			String sql = "delete from tblMemo where seq =?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, sql);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("DAO.del");
+			e.printStackTrace();
+		}
+		
+		return 0;
 	}
 
 }
