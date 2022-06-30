@@ -7,9 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <%@ include file="/WEB-INF/views/memo/inc/asset.jsp" %>
-
 <style>
 
 </style>
@@ -45,6 +43,11 @@
 					<td colspan="5">${dto.content}</td>
 				</tr>
 			</table>
+			
+			<div class="btns">
+				<input type="button" value="수정하기" class="btn btn-primary" onclick="location.href='/jsp/memo/edit.do?seq=${dto.seq}';">
+				<input type="button" value="삭제하기" class="btn btn-primary" onclick="location.href='/jsp/memo/del.do?seq=${dto.seq}';">
+			</div>
 			</c:forEach>
 			
 		</section>

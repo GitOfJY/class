@@ -7,18 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <%@ include file="/WEB-INF/views/memo/inc/asset.jsp" %>
-
 <style>
 
 </style>
-
 </head>
 <body>
 
 	<!-- template.jsp -->
-	
 	<main>
 		<%@ include file="/WEB-INF/views/memo/inc/header.jsp" %>
 		<section>
@@ -27,8 +23,26 @@
 	</main>
 	
 	<script>
-	
+		
 	</script>
-	
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
