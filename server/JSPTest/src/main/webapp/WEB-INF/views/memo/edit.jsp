@@ -20,7 +20,7 @@
 		<%@ include file="/WEB-INF/views/memo/inc/header.jsp" %>
 		<section>
 			
-			<form method="POST" action="/jsp/memo/editok.do">
+			<form method="POST" action="/JSPTest/memo/editok.do">
 				
 				<table class="table table-bordered add">
 					<tr>
@@ -42,7 +42,7 @@
 				</table>
 				
 				<div class="btns">
-					<input type="button" value="돌아가기" class="btn btn-secondary" onclick="location.href='/jsp/memo/list.do';">
+					<input type="button" value="돌아가기" class="btn btn-secondary" onclick="location.href='/JSPTest/memo/list.do';">
 					<input type="submit" value="메모수정하기" class="btn btn-primary">
 				</div>
 				

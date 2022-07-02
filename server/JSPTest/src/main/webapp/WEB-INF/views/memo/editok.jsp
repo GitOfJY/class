@@ -24,7 +24,7 @@
 	<script>
 	
 		<c:if test="${result == 1}">
-			location.href = '/jsp/memo/list.do';
+			location.href = '/JSPTest/memo/list.do';
 		</c:if>
 		
 		<c:if test="${result == 0}">

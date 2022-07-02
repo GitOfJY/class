@@ -21,7 +21,7 @@
 		<section>
 			
 			<!-- <form method="POST" action="데이터수신 페이지(서블릿 주소 > 절대 경로 사용)"> -->
-			<form method="POST" action="/jsp/memo/addok.do">
+			<form method="POST" action="/JSPTest/memo/addok.do">
 				
 				<table class="table table-bordered add">
 					<tr>
@@ -43,7 +43,7 @@
 				</table>
 				
 				<div class="btns">
-					<input type="button" value="돌아가기" class="btn btn-secondary" onclick="location.href='/jsp/memo/list.do';">
+					<input type="button" value="돌아가기" class="btn btn-secondary" onclick="location.href='/JSPTest/memo/list.do';">
 					<input type="submit" value="메모쓰기" class="btn btn-primary">
 				</div>
 				

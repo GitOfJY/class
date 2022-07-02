@@ -45,11 +45,12 @@
 			</table>
 			
 			<div class="btns">
-				<input type="button" value="수정하기" class="btn btn-primary" onclick="location.href='/jsp/memo/edit.do?seq=${dto.seq}';">
-				<input type="button" value="삭제하기" class="btn btn-primary" onclick="location.href='/jsp/memo/del.do?seq=${dto.seq}';">
+				<input type="button" value="수정하기" class="btn btn-primary" onclick="location.href='/JSPTest/memo/edit.do?seq=${dto.seq}';">
+				<input type="button" value="삭제하기" class="btn btn-primary" onclick="location.href='/JSPTest/memo/del.do?seq=${dto.seq}';">
 			</div>
 			</c:forEach>
 			
+				<input type="button" value="추가하기" class="btn btn-primary" onclick="location.href='/JSPTest/memo/add.do';">
 		</section>
 		
 	</main>

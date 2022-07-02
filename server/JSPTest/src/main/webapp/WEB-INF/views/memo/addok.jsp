@@ -25,15 +25,16 @@
 	
 	<script>
 	
-		//내장객체 안에 있는건 el로 가져온다. ${}
+		//내장객체 안에 있는건 el로 가져온다.
 		//연산이 필요하면 {}안에서 해결한다.(하나의 el 표현으로 해결한다.) 
 		<c:if test="${result == 1}">
-		location.href = '/jsp/memo/list.do';
+		location.href = '/JSPTest/memo/list.do';
 		</c:if>
 		
+		
 		<c:if test="${result == 0}">
-			alert('쓰기 실패');
-			history.back();
+		alert('쓰기 실패;;');
+		history.back();
 		</c:if>
 		
 	</script>
