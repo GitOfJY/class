@@ -24,7 +24,7 @@ public class AddOk extends HttpServlet {
 		//4. int result 
 		//	- 1. 성공
 		//	- 0. 실패
-		//5. JSP 호출하기 (4번 전달하면서)
+		//5. JSP 호출하기 > 4번 전달하면서
 		
 		
 		
@@ -61,7 +61,3 @@ public class AddOk extends HttpServlet {
 		dispatcher.forward(req, resp);
 	}
 }
-
-
-
-

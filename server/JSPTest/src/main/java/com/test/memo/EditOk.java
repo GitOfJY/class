@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class EditOk extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		//Editok.java > addok.java와 비슷
 		//1. 인코딩

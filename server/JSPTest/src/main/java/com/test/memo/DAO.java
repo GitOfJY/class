@@ -185,10 +185,10 @@ public class DAO {
 		
 		try {
 			
-			String sql = "delete from tblMemo where seq =?";
+			String sql = "delete from tblMemo where seq = ?";
 			
 			pstat = conn.prepareStatement(sql);
-			pstat.setString(1, sql);
+			pstat.setString(1, seq);
 			
 			return pstat.executeUpdate();
 			

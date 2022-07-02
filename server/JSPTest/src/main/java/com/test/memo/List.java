@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/memo/list.do")
 public class List extends HttpServlet {
@@ -21,12 +22,14 @@ public class List extends HttpServlet {
 		//2. 결과 반환
 		//3. JSP 호출하기 + 결과 전달하기
 		
+		
 		//1. + 2.
 		DAO dao = new DAO();
 		
 		ArrayList<DTO> list = dao.list();
 		
-		//2.5
+		
+		//2.5.
 		for (DTO dto : list) {
 			dto.setContent(dto.getContent().replace("\r\n", "<br>"));
 		}
