@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--  ex62.html  -->
+
+    <script>
+
+        //화살표 함수, Arrow Function
+        //- 자바의 람다 > 익명 객체(인터페이스를 상속받은 객체 > 반드시 추상 메소드 구현)의 추상 메소드를 표현하는 방식(문법)
+        //- 자바스크립트 화살표 함수 > 익명 함수를 표현하는 방식
+        
+        //1. 함수 선언문
+        function f1() {
+            console.log('f1');
+        }
+
+        f1();
+
+        //2. 함수 표현식(리터럴) == 익명 함수 > 나중에 사용하기 위해 변수 또는 이벤트 등에 저장
+        const f2 = function() {
+            console.log('f2');
+        }
+
+        f2();
+
+        //3. 화살표 함수 == 익명 함수
+        const f3 = () => {
+            console.log('f3');
+        };
+        
+        f3();
+
+
+
+        //실행문이 1줄일 때 실행 블럭을 생략할 수 있다.
+        const f4 = () => console.log('f4');
+        f4();
+
+        //매개변수
+        const f5 = (num) => console.log(num);
+        const f6 = num => console.log(num);
+        const f7 = (a, b) => console.log(num);
+        
+        //반환값 > 실행문안에 return값이 1개일 때 중괄호와 return 키워드를 생략할 수 있다.
+        const f8 = () => {return 100;};
+        const f9 = () => 200;
+
+
+        // setTimeout(m1, 1000);
+        // setTimeout(function() {}, 1000);
+        // setTimeout(() => {
+        //     alert();
+        // }, 1000);
+
+
+        document.getElementById('btn1').onclick = function() {};
+        document.getElementById('btn2').onclick = () => {};
+
+        console.clear();
+
+        const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    </script>
+    
+</body>
+</html>
