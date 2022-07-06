@@ -2,6 +2,7 @@ package com.test.toy.board;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,7 +26,7 @@ public class AddCommentOk extends HttpServlet {
 		//5. 피드백
 		
 		HttpSession session = req.getSession();
-	
+		
 		//1.
 		req.setCharacterEncoding("UTF-8");
 		
@@ -36,6 +37,7 @@ public class AddCommentOk extends HttpServlet {
 		String isSearch = req.getParameter("isSearch");
 		String column = req.getParameter("column");
 		String word = req.getParameter("word");
+		
 		
 		//3.
 		CommentDTO dto = new CommentDTO();
@@ -49,6 +51,7 @@ public class AddCommentOk extends HttpServlet {
 		
 		int result = dao.addComment(dto);
 		
+		
 		req.setAttribute("result", result);
 		req.setAttribute("isSearch", isSearch);
 		req.setAttribute("column", column);
@@ -61,29 +64,51 @@ public class AddCommentOk extends HttpServlet {
 		
 		
 		
-		//if (result==1) {
-			
-			//sendRedirect > location.href와 같은 행동
-			//resp.sendRedirect("/toy/board/view/do?seq="+pseq);
-			//resp.sendRedirect("/toy/board/view.do?seq=%s&isSearch=%s&column=%s&word=%s", );
-				
-		//} else {
-			
-		//	PrintWriter writer = resp.getWriter();
-			
-		//	writer.println("<html>");
-		//	writer.println("<body>");
-		//	writer.println("<script>");
-		//	writer.println("alert('failed')");
-		//	writer.println("history.back();");
-		//	writer.println("</script>");
-		//	writer.println("</body>");
-		//	writer.println("</html>");
-			
-		//	writer.close();
-			
-	//	}
+		
+//		if (result == 1) {
+//			
+//			//sendRedirect > location.href와 같은 행동
+//			//resp.sendRedirect("/toy/board/view/do?seq="+pseq);
+//			resp.sendRedirect(String.format("/toy/board/view.do?seq=%s&isSearch=%s&column=%s&word=%s", pseq, isSearch, column, URLEncoder.encode(word, "UTF-8")));
+//			
+//		} else {
+//			
+//			PrintWriter writer = resp.getWriter();
+//			
+//			writer.println("<html>");
+//			writer.println("<body>");
+//			writer.println("<script>");
+//			writer.println("alert('failed');");
+//			writer.println("history.back();");
+//			writer.println("</script>");
+//			writer.println("</body>");
+//			writer.println("</html>");
+//			
+//			writer.close();			
+//		}
+		
+		
 		
 		
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

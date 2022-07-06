@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 @WebServlet("/board/delok.do")
 public class DelOk extends HttpServlet {
 
@@ -24,9 +23,7 @@ public class DelOk extends HttpServlet {
 		//3. 결과
 		//4. JSP 호출하기
 		
-		
 		HttpSession session = req.getSession();
-		
 		
 		//1.
 		String seq = req.getParameter("seq");
@@ -35,11 +32,12 @@ public class DelOk extends HttpServlet {
 		BoardDAO dao = new BoardDAO();
 		
 		
+		
 		int temp = 0;
 		
 		if (session.getAttribute("auth") == null) {
 			temp = 1; //익명 사용자
-		} else if (session.getAttribute("auth") != null) {
+		} else if (session.getAttribute("auth") != null) { 
 			
 			if (session.getAttribute("auth").equals(dao.get(seq).getId())) {
 				temp = 2; //글쓴 본인(***)
@@ -50,8 +48,11 @@ public class DelOk extends HttpServlet {
 				} else {
 					temp = 4; //타인
 				}
+				
 			}
+			
 		}
+				
 		
 		int result = 0;
 		
@@ -64,7 +65,8 @@ public class DelOk extends HttpServlet {
 			BoardDTO dto = dao.get(seq);
 			
 			if (dto.getFilename() != null) {
-				String path = req.getRealPath("files")+"\\"+dto.getFilename();
+				
+				String path = req.getRealPath("files") + "\\" + dto.getFilename();
 				File file = new File(path);
 				file.delete();
 			}
@@ -80,11 +82,32 @@ public class DelOk extends HttpServlet {
 		}
 		
 		
-		//4.
-		req.setAttribute("result", result);
 		
+		
+		//4.
+		req.setAttribute("result", result);		
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/delok.jsp");
 		dispatcher.forward(req, resp);
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,12 +15,9 @@ public class Dummy {
 		String sql = "insert into tblBoard (seq, subject, content, id, regdate, readcount) values (seqBoard.nextVal, ?, ?, ?, default, default)";
 		
 		//시드 데이터
-		String[] subject = {"더미데이터는","게시판을", "안녕", "홍길동입니다.", "자바는", "컴퓨터가", "급하게", "밖에", "오늘", "아", "비가", "테스트 중~", "뭐라는거야", "휴일이야"};
-		
+		String[] subject = { "게시판을", "안녕~", "홍길동입니다.", "자바는", "컴퓨터가", "급하게", "밖에", "비가", "아~", "휴..", "앗!!", "테스트에게", "뭐라고!!"};
 		String content = "내용입니다.";
-		
-		//실제 있는 id로 수정하기
-		String[] id = {"hong", "admin", "test"};
+		String[] id = { "hong", "admin", "test", "hoho", "lee" }; //실제 있는 id로 수정하기
 		
 		Connection conn = null;
 		PreparedStatement stat = null;
@@ -28,14 +25,17 @@ public class Dummy {
 		try {
 			
 			conn = DBUtil.open();
+			
 			stat = conn.prepareStatement(sql);
 			
 			Random rnd = new Random();
 			
-			for (int i = 0; i<256; i++) {
+			for (int i=0; i<256; i++) {
 				
 				stat.setString(1, subject[rnd.nextInt(subject.length)] + " " + subject[rnd.nextInt(subject.length)] + " " + subject[rnd.nextInt(subject.length)] + " " + subject[rnd.nextInt(subject.length)] + " " + subject[rnd.nextInt(subject.length)]);
+				
 				stat.setString(2, content);
+				
 				stat.setString(3, id[rnd.nextInt(id.length)]);
 				
 				stat.executeUpdate();
@@ -50,6 +50,28 @@ public class Dummy {
 		}
 		
 		
+		
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

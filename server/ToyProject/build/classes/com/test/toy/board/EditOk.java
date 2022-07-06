@@ -27,18 +27,20 @@ public class EditOk extends HttpServlet {
 		//4. 결과
 		//5. JSP 호출하기
 		
-		
 		HttpSession session = req.getSession();
 		
+
 		
 		//1.
 		req.setCharacterEncoding("UTF-8");
 		
-		//1.5 새로운 파일을 선택했을 때..
+	
+		
+		//1.5 새로운 파일을 선택했을 때
 		String path = req.getRealPath("/files");
 		int size = 1024 * 1024 * 100;
-				
-				
+		
+		
 		MultipartRequest multi = null;
 		
 		try {
@@ -57,14 +59,18 @@ public class EditOk extends HttpServlet {
 		}
 		
 		
+		
+		
 		//2.
-		String subject = req.getParameter("subject");
-		String content = req.getParameter("content");
-		String seq = req.getParameter("seq");
+		String subject = multi.getParameter("subject");
+		String content = multi.getParameter("content");
+		String seq = multi.getParameter("seq");
 		
 		String isSearch = multi.getParameter("isSearch");
 		String column = multi.getParameter("column");
 		String word = multi.getParameter("word");
+		
+		
 		
 		//3.
 		BoardDTO dto = new BoardDTO();
@@ -75,6 +81,8 @@ public class EditOk extends HttpServlet {
 		
 		BoardDAO dao = new BoardDAO();
 		
+		
+		
 		//3.5 첨부 파일 처리
 		//3.5.1 기존 파일 O > (교체) > 새로운 파일 O
 		
@@ -82,32 +90,33 @@ public class EditOk extends HttpServlet {
 		String filename    = multi.getFilesystemName("attach");
 		String orgfilename = multi.getOriginalFileName("attach");
 		
+
 		//기존 파일
 		BoardDTO tempdto = dao.get(seq);
-				
+		
 		if (tempdto.getFilename() != null && filename != null) {
-					
+			
 			//기존 파일 삭제
 			File file = new File(path + "\\" + tempdto.getFilename());
 			file.delete();
-					
+			
 			dto.setFilename(filename);
 			dto.setOrgfilename(orgfilename);
 		} else if (filename == null && multi.getParameter("delfile").equals("y")) {
-					
+			
 			//기존 파일만 삭제하고, 새로운 파일을 추가 안했을 경우
 			File file = new File(path + "\\" + tempdto.getFilename());
 			file.delete();
 			dto.setFilename(filename);
 			dto.setOrgfilename(orgfilename);
-					
+			
 		} else if (filename == null) {
-					
+			
 			//기존 파일의 유무와 상관없이 새로운 파일을 추가 안했을 경우
 			dto.setFilename(tempdto.getFilename());
 			dto.setOrgfilename(tempdto.getOrgfilename());
 		} else if (tempdto.getFilename() == null && filename != null) {
-					
+			
 			//기존 파일이 없는데 새로운 파일을 추가하는 경우
 			dto.setFilename(filename);
 			dto.setOrgfilename(orgfilename);
@@ -119,7 +128,7 @@ public class EditOk extends HttpServlet {
 		
 		if (session.getAttribute("auth") == null) {
 			temp = 1; //익명 사용자
-		} else if (session.getAttribute("auth") != null) {
+		} else if (session.getAttribute("auth") != null) { 
 			
 			if (session.getAttribute("auth").equals(dao.get(seq).getId())) {
 				temp = 2; //글쓴 본인(***)
@@ -130,8 +139,11 @@ public class EditOk extends HttpServlet {
 				} else {
 					temp = 4; //타인
 				}
+				
 			}
+			
 		}
+				
 		
 		int result = 0;
 		
@@ -142,7 +154,8 @@ public class EditOk extends HttpServlet {
 		
 		//4.
 		req.setAttribute("result", result); //피드백 위한 숫자
-		req.setAttribute("seq", seq);		//view.jsp로 돌아가기 위한 숫자
+		req.setAttribute("seq", seq);       //view.jsp로 돌아가기 위한 숫자
+		
 		
 		req.setAttribute("isSearch", isSearch);
 		req.setAttribute("column", column);
@@ -152,4 +165,24 @@ public class EditOk extends HttpServlet {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/editok.jsp");
 		dispatcher.forward(req, resp);
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

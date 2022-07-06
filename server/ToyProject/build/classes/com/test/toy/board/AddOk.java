@@ -1,7 +1,6 @@
 package com.test.toy.board;
 
 import java.io.IOException;
-
 import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
@@ -28,7 +27,7 @@ public class AddOk extends HttpServlet {
 
 		//AddOk.java
 		//1. 인코딩
-		//2. 데이터 가져오기 (subject, content)
+		//2. 데이터 가져오기(subject, content)
 		//3. DB 작업 > DAO 위임 > insert
 		//4. 결과
 		//5. JSP 호출하기
@@ -38,9 +37,13 @@ public class AddOk extends HttpServlet {
 		//1.
 		req.setCharacterEncoding("UTF-8");
 		
+		
+		
+		
 		//1.5 파일 업로드
 		String path = req.getRealPath("/files");
 		int size = 1024 * 1024 * 100;
+		
 		
 		MultipartRequest multi = null;
 		
@@ -59,17 +62,21 @@ public class AddOk extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		//2.	
+		
+		
+		
+		//2.
 		String subject = multi.getParameter("subject");
 		String content = multi.getParameter("content");
 		
 		
-		//2.5. 현재 새글 작성중인지? 답변글 작성중인지?
+		//2.5 현재 새글 작성중인지? 답변글 작성중인지?
 		String reply = multi.getParameter("reply");
 		//System.out.println("reply: " + (reply == ""));
 		
 		int thread = -1;
 		int depth = -1;
+		
 		
 		BoardDAO dao = new BoardDAO();
 		
@@ -107,9 +114,16 @@ public class AddOk extends HttpServlet {
 		}
 		
 		
+		
+		
+		
 		//2.7 업로드 파일 처리
 		String filename    = multi.getFilesystemName("attach");
 		String orgfilename = multi.getOriginalFileName("attach");
+		
+		
+		
+		
 		
 		//3.
 		BoardDTO dto = new BoardDTO();
@@ -125,6 +139,7 @@ public class AddOk extends HttpServlet {
 		dto.setOrgfilename(orgfilename);
 		
 		
+		
 		int result = 0;
 		
 		if (session.getAttribute("auth") != null) {
@@ -132,35 +147,36 @@ public class AddOk extends HttpServlet {
 		}
 		
 		
-		//방금 작성한 글번호
+		
+		//방금 쓴 글번호
 		String seq = dao.getSeq();
 		
 		
-		//3.5. 해시 태그
+		//3.5 해시 태그
 		String tags = multi.getParameter("tags");
-		
 		
 		//게시물 1개 + 해시 태그 3개
 		//- 게시물 1개 insert
 		//- 게시물 1개 PK select
 		//(
-		//	- 해시태그 insert
-		//	- 해시태그 PK insert
-		//	- 게시물해시태그 1개 insert
-		//) * 3 반복
+		//- 해시 태그 1개 insert
+		//- 해시 태그 PK select
+		//- 게시물해시태그 1개 insert
+		//) x 3개
+		
 		
 		//System.out.println("tags:" + tags); 
 		//tags: [{"value":"aaa"}, {"value":"bbb"}] > javaScript 형태로 넘어옴
+				
 		
+		//Java > JSON format > JSON Simple > maven repository
 		
-		//Java > JSON format
-		
-		//https://mvnrepository.com
+		//https://mvnrepository.com/
 		//https://search.maven.org/
 		
+
 		//org.json.simple.parser.JSONParser
 		JSONParser parser = new JSONParser();
-		
 		
 		try {
 			
@@ -170,24 +186,20 @@ public class AddOk extends HttpServlet {
 			JSONArray list = (JSONArray)parser.parse(tags);
 			
 			//System.out.println(list);
-			//[{"value":"aaa"}, {"value":"aaa"},{"value":"ccc"}]
+			//[{"value":"aaa"},{"value":"bbb"},{"value":"ccc"}]
 			
 			for (Object obj : list) {
-				
 				//System.out.println(obj);
-				//{"value":"aaa"}  {"value":"aaa"}  {"value":"ccc"}
-				
 				//System.out.println(((JSONObject)obj).get("value"));
-				//aaa bbb ccc
 				
 				String tag = (String)((JSONObject)obj).get("value");
 				
-				//HashTag > DB에 insert
+				//HashTag > insert 2개 > hashmap 이용
 				dao.addHashTag(tag);
 				
 				String hseq = dao.getHashTagSeq();
 				
-				//Tagging > insert 2개 > hashmap 이용
+				//Tagging > insert
 				HashMap<String,String> map = new HashMap<String,String>();
 				
 				map.put("bseq", seq);
@@ -196,21 +208,37 @@ public class AddOk extends HttpServlet {
 				dao.addTagging(map);
 				
 			}
+
 			
-			
-		} catch (Exception e) {
-			System.out.println("AddOk.doPost");
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-	
-
+				
 		
 		//4.
-		req.setAttribute("result", result);
+		req.setAttribute("result", result);		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/addok.jsp");
 		dispatcher.forward(req, resp);
-		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

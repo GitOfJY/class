@@ -1,6 +1,5 @@
 package com.test.toy.board;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -21,20 +20,23 @@ public class Add extends HttpServlet {
 		
 		//새글쓰기   > add.do
 		//답변글쓰기 > add.do?reply=1
-				
+		
 		//add.do > null
 		//add.do?reply= > ""
 		//add.do?replay=1 > 1
-				
+		
 		String reply = req.getParameter("reply");
 		String thread = req.getParameter("thread");
 		String depth = req.getParameter("depth");
 		
 		
-		//해시태그 목록 가져오기(자동 완성)
+		
+		//해시 태그 목록 가져오기(자동 완성)
 		BoardDAO dao = new BoardDAO();
 		
 		ArrayList<String> taglist = dao.taglist();
+		
+		
 		
 		req.setAttribute("reply", reply);
 		req.setAttribute("thread", thread);
@@ -48,3 +50,22 @@ public class Add extends HttpServlet {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

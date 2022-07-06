@@ -26,10 +26,27 @@ public class BoardDTO {
 	private String orgfilename;
 	
 	private ArrayList<String> taglist;
-
+	
 	private String good;
 	private String bad;
 	private String goodbad; //단일 데이터
-	
+		
 	//private int cnt; //집합 데이터 > 성격이 다르기 때문에 dto 다시 생성
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
