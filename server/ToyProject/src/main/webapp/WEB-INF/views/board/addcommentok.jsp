@@ -23,7 +23,14 @@
 	
 	<script>
 		
-		location.href = '/toy/index.do';
+		<c:if test="${result == 1}">
+		location.href = '/toy/board/view.do?seq=${pseq}&isSearch=${isSearch}&column=${column}&word=${word}';
+		</c:if>
+		
+		<c:if test="${result == 0}">
+		alert('failed');
+		history.back();
+		</c:if>
 	
 	</script>
 

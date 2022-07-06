@@ -22,9 +22,7 @@
 	</main>
 	
 	<script>
-		
-		location.href = '/toy/index.do';
-	
+		location.href = '/toy/ajax/ex02.do?cnt=${cnt}';
 	</script>
 
 </body>

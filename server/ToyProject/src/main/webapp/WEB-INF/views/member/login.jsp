@@ -7,77 +7,97 @@
 <head>
 <meta charset="UTF-8">
 <title>Toy Project</title>
-
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
-
-<style>
-
-</style>
 
 </head>
 <body>
 
-	<!--  template.jsp > login.jsp  -->
-
-
 	<main>
-	
 		<%@ include file="/WEB-INF/views/inc/header.jsp" %>
-	
-	<section>
-		
-		<h2>Login</h2>
-		
-		<form method="POST" action="/toy/member/loginok.do">
-		
+		<section>
+			
+			<h2>Login</h2>
+			
+			<form method="POST" action="/toy/member/loginok.do">
 			<table class="table table-bordered vertical">
 				<tr>
 					<th>아이디</th>
-					<td><input type="text" name="id" class="from-control short" required></td>
+					<td><input type="text" name="id" class="form-control short" required></td>
 				</tr>
 				<tr>
-					<th>비밀번호</th>
-					<td><input type="password" name="pw" class="from-control short" required></td>
+					<th>암호</th>
+					<td><input type="password" name="pw" class="form-control short" required></td>
 				</tr>
 			</table>
-			
 			<div class="btns">
-				<input type="button" value="돌아가기" class="btn btn-secondary" onclick="history.back();">
-				<input type="submit" value="로그인" class="btn btn-primary">
+				<input type="button" value="돌아가기" class="btn btn-secondary"
+					onclick="history.back();">
+				<button class="btn btn-primary">
+					<i class="fas fa-sign-in-alt"></i>
+					로그인
+				</button>
+			</div>
+			</form>
+			
+			<hr>
+			
+			<!-- 개발할 때만 사용하는 테스트용, 개발 완료 후 지우기 -->
+			<div style="display: flex">
+			<form method="POST" action="/toy/member/loginok.do">
+				<input type="hidden" name="id" value="admin">
+				<input type="hidden" name="pw" value="1111">
+				<input type="submit" value="관리자(admin)" class="btn btn-success">
+			</form>
+			&nbsp;
+			<form method="POST" action="/toy/member/loginok.do">
+				<input type="hidden" name="id" value="hong">
+				<input type="hidden" name="pw" value="1111">
+				<input type="submit" value="홍길동(hong)" class="btn btn-success">
+			</form>
+			&nbsp;
+			<form method="POST" action="/toy/member/loginok.do">
+				<input type="hidden" name="id" value="test">
+				<input type="hidden" name="pw" value="1111">
+				<input type="submit" value="테스트(test)" class="btn btn-success">
+			</form>
+			&nbsp;
+			<form method="POST" action="/toy/member/loginok.do">
+				<input type="hidden" name="id" value="hoho">
+				<input type="hidden" name="pw" value="1111">
+				<input type="submit" value="호호호(hoho)" class="btn btn-success">
+			</form>
+			&nbsp;
+			<form method="POST" action="/toy/member/loginok.do">
+				<input type="hidden" name="id" value="lee">
+				<input type="hidden" name="pw" value="1111">
+				<input type="submit" value="이순신(lee)" class="btn btn-success">
+			</form>
 			</div>
 			
-		</form>
-		
-		<hr>
-		
-		<!-- 개발할 때만 사용하는 테스트용, 개발 완료 후 지우기 -->
-		<div style="display: flex"> 
-		<form method="POST" action="/toy/member/loginok.do">
-			<input type="hidden" name="id" value="admin">
-			<input type="hidden" name="pw" value="1111">
-			<input type="submit" value="관리자(admin)" class="btn btn-success">
-		</form>
-		&nbsp;
-		<form method="POST" action="/toy/member/loginok.do">
-			<input type="hidden" name="id" value="hong">
-			<input type="hidden" name="pw" value="1111">
-			<input type="submit" value="홍길동(hong)" class="btn btn-success">
-		</form>
-		&nbsp;
-		<form method="POST" action="/toy/member/loginok.do">
-			<input type="hidden" name="id" value="test">
-			<input type="hidden" name="pw" value="1111">
-			<input type="submit" value="테스트(test)" class="btn btn-success">
-		</form>
-		</div>
-		
-	</section>
-	
+		</section>
 	</main>
 	
 	<script>
-	
+		
 	</script>
-	
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
