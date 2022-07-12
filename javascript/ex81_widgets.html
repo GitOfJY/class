@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <style>
+
+        body {
+            width: 800px;
+            margin: 20px auto;
+        }
+
+        #search {
+            border: 1px solid #999;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px;
+        }
+
+        #price {
+            margin: 20px;
+        }
+
+        .item {
+            border: 1px solid #999;
+            width: 150px;
+            height: 220px;
+            text-align: center;
+            padding: 20px 10px;
+            margin: 14px;
+            float: left;
+        }
+
+        .item > div:last-child {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: tomato;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    
+    <!--  ex81_widgets.html  -->
+
+    <h1>상품 등록</h1>
+
+    <div id="search">
+        가격: <span>30,000원 ~ 70,000원</span>
+        <div id="price"></div>
+    </div>
+
+    <div id="list">
+
+            <div class="item">
+                <img src="images/rect_icon01.png">
+                <div>상품명</div>
+                <div>5000</div>
+            </div>
+
+            <div class="item">
+                <img src="images/rect_icon02.png" alt="">
+                <div>Nobis, pariatur!</div>
+                <div>10000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon03.png" alt="">
+                <div>Dolore, corporis.</div>
+                <div>30000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon04.png" alt="">
+                <div>Nam, sapiente.</div>
+                <div>25000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon05.png" alt="">
+                <div>Quod, dolorem.</div>
+                <div>55000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon06.png" alt="">
+                <div>Dolorem, molestiae.</div>
+                <div>35000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon07.png" alt="">
+                <div>Laborum, obcaecati.</div>
+                <div>22000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon08.png" alt="">
+                <div>Atque, quidem!</div>
+                <div>12000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon09.png" alt="">
+                <div>Quidem, quia.</div>
+                <div>59000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon10.png" alt="">
+                <div>Soluta, porro!</div>
+                <div>66000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon11.png" alt="">
+                <div>Obcaecati, non!</div>
+                <div>44000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon12.png" alt="">
+                <div>Repellendus, amet?</div>
+                <div>36000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon13.png" alt="">
+                <div>Numquam, vero.</div>
+                <div>19000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon14.png" alt="">
+                <div>Quasi, laudantium.</div>
+                <div>69000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon15.png" alt="">
+                <div>Laboriosam, expedita?</div>
+                <div>58000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon16.png" alt="">
+                <div>Temporibus, voluptate.</div>
+                <div>14000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon17.png" alt="">
+                <div>Amet, aliquam.</div>
+                <div>39000</div>
+            </div>
+            <div class="item">
+                <img src="images/rect_icon18.png" alt="">
+                <div>Cupiditate, iure.</div>
+                <div>37000</div>
+            </div>
+    </div>
+
+    <script>
+
+        $('#price').slider({
+            range: true, //버튼 2개
+            min: 30000,
+            max: 70000,
+            step: 1000,
+            values: [ 30000, 70000],
+            slide: function(event, ui) {
+
+                //단일 버튼일 때
+                //$('#search > span').text(ui.value);  
+
+                //다중 버튼일 때
+                //$('#search > span').text(ui.values[0] + ',' + ui.values[1]);
+
+                //30000 ~ 70000
+                //toLocaleString() > 1000 단위 , 추가
+                $('#search > span').text(`${ui.values[0].toLocaleString()}원 ~ ${ui.values[1].toLocaleString()}원`);
+
+                $('#list .item').each(function(index, item) {
+
+                    const price = parseInt($(item).children().last().text());
+
+                    if (price >= parseInt(ui.values[0]) && price <= parseInt(ui.values[1])) {
+                        $(item).show();
+                    } else {
+                        $(item).hide();
+                    }
+
+                });
+
+            }
+        });
+
+
+
+
+    </script>
+
+</body>
+</html>

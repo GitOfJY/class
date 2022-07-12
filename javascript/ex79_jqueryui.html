@@ -43,7 +43,7 @@
 
     <script>
 
-        $('#list1, #list3').sortable();
+        $('#list1, #list3').sortable(); //요소 drag%drop 재배치 가능
 
         $('#btn').click(function() {
             
@@ -52,7 +52,8 @@
             // document.getElementById('result').innerHTML += img.dataset['no'] + '<br>';
             // });
 
-            //2. jquery
+            //2. jquery (jquery의 forEach)
+            //item, index 순서 반대 주의
             $('#list3').children().each(function(index, item) {
                 $('#result').append($(item).data('no')+'<br>');
             });

@@ -16,6 +16,7 @@
         //- 자바의 람다 > 익명 객체(인터페이스를 상속받은 객체 > 반드시 추상 메소드 구현)의 추상 메소드를 표현하는 방식(문법)
         //- 자바스크립트 화살표 함수 > 익명 함수를 표현하는 방식
         
+
         //1. 함수 선언문
         function f1() {
             console.log('f1');
@@ -23,12 +24,14 @@
 
         f1();
 
+
         //2. 함수 표현식(리터럴) == 익명 함수 > 나중에 사용하기 위해 변수 또는 이벤트 등에 저장
         const f2 = function() {
             console.log('f2');
         }
 
         f2();
+
 
         //3. 화살표 함수 == 익명 함수
         const f3 = () => {
@@ -43,29 +46,136 @@
         const f4 = () => console.log('f4');
         f4();
 
+
         //매개변수
         const f5 = (num) => console.log(num);
         const f6 = num => console.log(num);
         const f7 = (a, b) => console.log(num);
         
-        //반환값 > 실행문안에 return값이 1개일 때 중괄호와 return 키워드를 생략할 수 있다.
+
+        //반환값 > 실행구문안에 return값이 유일하면 중괄호와 return 키워드를 생략할 수 있다.
         const f8 = () => {return 100;};
         const f9 = () => 200;
+ 
+
+        // 1. setTimeout(m1, 1000);
+        // 2. setTimeout(function() {}, 1000);
+        // 3. setTimeout(() => {
+        //        alert();
+        //    }, 1000);
 
 
-        // setTimeout(m1, 1000);
-        // setTimeout(function() {}, 1000);
-        // setTimeout(() => {
-        //     alert();
-        // }, 1000);
+        //버튼있다고 가정 click 이벤트
+        // 1. document.getElementById('btn1').onclick = function() {};
+        // 2. document.getElementById('btn2').onclick = () => {};
+
+        
+        console.clear();
 
 
-        document.getElementById('btn1').onclick = function() {};
-        document.getElementById('btn2').onclick = () => {};
+        const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const clist = [ '사과', '포도', '딸기', '수박', '참외', '귤', '망고', '키위', '앵두', '자두', '배', '바나나'];
+
+
+        //loop
+        for (let i=0; i<list.length; i++) {
+            console.log(list[i]);
+        }
+
+        //향상된 for문 역할 > list.forEach(); 
+        //java  > list.stream().forEach(consumer);
+        //      > list.stream().forEach(n -> System.out.println(n));
+
+        list.forEach(function(num) {
+            console.log(num);
+        });
+
+        list.forEach(n => console.log(n));
+        //n => console.log(n) > Consumer 역할
+
+        clist.forEach(f => console.log(f));
+
+        clist.forEach((item, index) => console.log(item, index)); //사과 0
+        //clist.forEach((item, index, temp) => console.log(item, index, temp)); 
+        //temp > clist 배열 자체를 참조해서 출력
+
 
         console.clear();
 
-        const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        //map();
+        //- 요소를 다른 값으로 변경 후 새로운 배열 반환
+        //- 가공 + 반환
+        //console.log(list.map(n => n % 2 == 0 ? '짝수' : '홀수'));
+        list.map(n => n % 2 == 0 ? '짝수' : '홀수').forEach(str => console.log(str));
+
+        clist.map(item => item.length).forEach(len => console.log(len));
+
+
+        //20세, 서울시 > 객체배열 만들기 object[] > 자바 람다와 비슷
+        const names = ['홍길동', '아무개', '호호호'];
+        
+        //1.
+        const olist = [
+        {
+            name: '홍길동',
+            age: 20,
+            address: '서울시'
+        },
+        {
+            name: '아무개',
+            age: 20,
+            address: '서울시'
+        },
+        {
+            name: '호호호',
+            age: 20,
+            address: '서울시'
+        }
+        ];
+
+        //2.
+        names.map(name => {
+            return {
+                name: name,
+                age: 20,
+                address: '서울시'
+            };
+        }).forEach(obj => console.log(obj));
+        
+
+        console.clear();
+
+
+        //filer()
+        //- 요소를 조건에 부합되는 것들만 걸러서 반환
+        clist.filter(item => item.length >= 3).forEach(item => console.log(item));
+
+        clist.filter(item => item.length >= 3).map(item => item.length).forEach(item => console.log(item));
+
+
+        console.clear();
+
+
+        //find()
+        //- 요소 검색
+        let result = clist.find(item => item.startsWith('바'));
+        console.log(result);
+
+        const mlist = ['홍길동', '아무개', '하하하', '홍호호', '홍히히'];
+        let mresult = mlist.find(item => item.startsWith('홍'));
+        console.log(mresult);
+        //홍길동 > 첫 번째 것만 출력하고 끝
+
+
+        for (let i=0; i<mlist.length; i++) {
+            if (mlist[i].startsWith('홍')) {
+                console.log(mlist[i]);
+                break; //return
+            }
+        }
+
+
 
     </script>
     

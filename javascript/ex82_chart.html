@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    
+</head>
+<body>
+
+    <!--  ex82_chart.html  -->
+
+    <h1>차트 만들기</h1>
+
+    <!--
+        <figure class="highcharts-figure"> 
+        //figure > 그림/설명 태그 
+        <div id="container"></div>
+        </figure>
+    -->
+
+    <div id="container"></div>
+
+    <script>
+       
+       //Highcharts.chart() > 인자값이 많은 method 1개
+       Highcharts.chart('container', {
+
+        title: { 
+        text: '몸무게 변화, 2010-2016'
+        },
+
+        subtitle: {
+        text: '측정 시간: 기상 직후'
+        },
+
+        yAxis: {
+            title: {
+                text: '몸무게'
+            }
+        },
+
+        xAxis: {
+            accessibility: {
+                rangeDescription: 'Range: 2010 to 2017'
+            }
+        },
+
+        legend: { //범례
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        plotOptions: { //수치의 기준선
+            series: {
+                label: {
+                connectorAllowed: false
+                },
+                pointStart: 2010
+            }
+        },
+
+        series: [
+        {
+            name: '홍길동', //선 이름
+            data: [70, 73, 77, 78, 97, 93, 71, 75] //데이터
+        }, {
+            name: '홍하하', 
+            data: [50, 55, 57, 58, 53, 60, 51, 55] 
+        }, {
+            name: '아무개', 
+            data: [60, 73, 47, 58, 67, 73, 71, 73] 
+        }],
+
+        responsive: { //화면에 따른 부분 옵션
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+
+    </script>
+    
+</body>
+</html>

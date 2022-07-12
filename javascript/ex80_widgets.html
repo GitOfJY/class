@@ -10,6 +10,19 @@
     <script src="js/jquery-1.12.4.js"></script>
     <script src="js/jquery-ui.js"></script>
 
+    <style>
+
+        .slider {
+            margin: 30px;
+        }
+
+        .ui-slider .ui-slider-handle {
+            width: 0.7em;
+            height: 1.3em;
+        }
+
+    </style>
+
 </head>
 <body>
 
@@ -17,7 +30,7 @@
 
     <h1>Accordion</h1>
 
-    <div id="al">
+    <div id="a1">
         <h2>HTML</h2>
         <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae facilis corporis soluta officia repudiandae laudantium quibusdam cupiditate culpa unde! Perspiciatis quos iusto asperiores ex nam consequatur vitae non numquam adipisci!</div>
         <h2>CSS</h2>
@@ -32,20 +45,116 @@
         <input type="button" value="등록하기" id="btn1" class="btn">
         <input type="button" value="취소하기" id="btn2" class="btn">
     </div>
-
+   
     <a href="https://naver.com" class="btn">네이버</a>
 
+    <h1>날짜</h1>
+
+    날짜 선택 : <input type="date">
+
+    <hr>
+
+    날짜 선택 : <input type="text" id="date1">
+
+    <h1>다이얼로그</h1>
+
+    <input type="button" value="확인" id="btn3">
+    <div id="dialog1">안녕하세요.</div>
+
+
+    <h1>슬라이더</h1>
+
+    <div id="slider1" class="slider"></div>
+    <div id="result1"></div>
+
+    <hr>
+
+    <div id="slider2" class="slider"></div>
+    <div id="slider3" class="slider"></div>
+    <div id="slider4" class="slider"></div>
+
     <script>
-        
-        $('#al').accordion({
+
+        $('#a1').accordion({
             collapsible: true
         });
 
-        $('.btn').button();
+        $('.btn').button();    // accordion과 서식 맞춤
+        
+        $('#btn').controlgroup(); // 여러개 버튼 > 한개로 연결
 
-        $('#btns').controlgroup();
+        $('#date1').datepicker({
+            dateFormat: 'yy-mm-dd',
+            //minDate: '-5',
+            //maxDate: '+5' //오늘 기준으로 5일 전후만 선택 가능
+            minDate: '-1M -5D',
+            maxDate: '+1M +5D'
+        });
+
+
+
+        //대화상자 (팝업은 무조건 2가지로 나눠짐)
+        //1. modal (문제가 확률 적음)
+        //  - 팝업창이 열려있으면 포커스를 독점한다.
+        //  - 팝업창의 업무가 종료되기 전까지 부모창의 업무를 진행(병행) 할 수 없다.
+        //  - 팝업창 <- 비종속적 -> 부모창
+        //2. modeless
+        //  - 팝업창과 부모창의 포커스 전환이 자유롭다.
+        //  - 팝업창의 업무와 부모창의 업무를 동시에 진행할 수 있다.
+        //  - 팝업창 <- 비종속적 -> 부모창
+
+
+
+        $('#dialog1').hide();
+        $('#btn3').click(function() {
+            $('#dialog1').dialog({
+                title: '대화상자',
+                width: 300,
+                height: 200,
+                draggable: false,
+                resizable: false,
+                buttons: {
+                    //'text': function() { alert(); }
+                    '확인': function() {
+
+                    },
+                    '취소': function() {
+                        $('#dialog1').dialog('close');
+                    }
+                },
+                modal: true
+            });
+        });
+
+
+        $('#slider1').slider({
+            min: 100,
+            max: 1000,
+            step: 100,
+            slide: function(event, ui) {
+                $('#result1').text(ui.value);
+            }
+        });
+
+
+        $('#slider2, #slider3, #slider4').slider({
+            min: 0,
+            max: 255,
+            value: 255, //기본값
+            slide: function(event, ui) {
+
+                let r = $('#slider2').slider('value');
+                let g = $('#slider3').slider('value');
+                let b = $('#slider4').slider('value');
+
+                $('body').css('background-color', `rgb(${r}, ${g}, ${b})`);
+            }
+        });
+        
 
     </script>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
     
 </body>
 </html>

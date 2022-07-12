@@ -37,11 +37,11 @@
             cursor: 'move'
         });
 
-        $('#box').droppable({
-            tolerance: 'fit',
-            drop: function() {
+        $('#box').droppable({ //drop 유무 알 수 있음 > event로 인식
+            tolerance: 'fit',                                       //정보 프로퍼티
+            drop: function() { //event이름 : event매핑함수() {}      //메서드 프로퍼티
                 //alert();
-                $(this).css('background-color', 'tomato');
+                $(this).css('background-color', 'tomato'); //this > box
                 $('#cat').draggable({
                     containment: '#box'
                 });
