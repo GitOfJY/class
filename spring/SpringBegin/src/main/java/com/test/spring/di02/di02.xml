@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 스프링 설정 파일(XML) -->
+    
+    <!-- https://docs.spring.io/spring-framework/docs/5.3.18/reference/html/core.html#beans-factory-metadata -->
+    <!-- 1-2-1에서 복사 -->
+    
+    
+    <!-- 
+    
+    	자바 객체 생성 + 설정
+    	- 자바 객체 == Bean
+    
+     -->
+    
+    <!-- m1() -->
+    <!-- 하나의 객체가 어디에서 쓰이느냐? > 역할 달라질 수 있다. > 식별자 여러개 제공 > 가독성 -->
+    <bean id="pen" name="p1 p2 p3" class="com.test.spring.di02.Pen"></bean>
+    <bean id="brush" class="com.test.spring.di02.Brush"></bean>
+    
+    
+    <!-- spring DI -->
+    <bean id="hong" class="com.test.spring.di02.Hong">
+    	<!-- spring DI -->
+    	<!-- 생성자 인자 -->
+    	<constructor-arg ref="pen"></constructor-arg>
+    </bean>  
+    
+    <bean id="lee" class="com.test.spring.di02.Lee">
+    	<!-- spring DI -->
+    	<!-- setter -->
+    	<property name="brush" ref="brush"></property>
+    </bean>
+    
+    
+    
+</beans>
