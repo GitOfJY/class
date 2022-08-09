@@ -46,3 +46,4 @@
 <span style="color:yellow"> 글씨색 변경 </span>  
 <font color='dodgerblue'> 예쁜 파랑 </font>
 <font color='#1E90FF'> 예쁜 파랑 </font>
+<mark style='background-color: #f6f8fa'> 연한 회색 </mark>
