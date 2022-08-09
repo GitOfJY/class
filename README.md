@@ -1,13 +1,11 @@
 ## [쌍용교육센터] 
-> 수업 자료와 복습한 교재 내용입니다.  
+> <span style='background-color:#F7DDBE'>수업 자료</span>와 복습한 교재 내용입니다.  
 > 2022.03.03 ~ 2022.08.12  
 
 
 
-
-1. [Java][Javalink]
-    + Java의 정석
-   
+1. <span style='color:black'>[Java][Javalink]</span>
+    + Java의 정석</div> 
   
 2. [Oracle][Oraclelink]
     + 데이터베이스 개론과 실습
