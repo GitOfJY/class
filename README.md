@@ -9,10 +9,10 @@
 [Oraclelink]: https://github.com/GitOfJY/class/tree/main/oracle
 [CSSlink]: https://github.com/GitOfJY/class/tree/main/css
 [HTMLlink]: https://github.com/GitOfJY/class/tree/main/html
-[JavaScriptlink]:
-[Servletlink]:
-[JSPlink]:
-[ToyProjectlink]:
+[JavaScriptlink]: https://github.com/GitOfJY/class/tree/main/javascript
+[Servletlink]: https://github.com/GitOfJY/class/tree/main/server/ServletTest
+[JSPlink]: https://github.com/GitOfJY/class/tree/main/server/JSPTest
+[ToyProjectlink]: https://github.com/GitOfJY/class/tree/main/server/ToyProject
 [Springlink]:
 
 1. [Java][Javalink]
@@ -26,14 +26,14 @@
 4. [HTML][HTMLlink]
     + HTML5 웹 프로그래밍 입문
   
-5. [JavaScript]
+5. [JavaScript][JavaScriptlink]
 
-6. [Servlet]
+6. [Servlet][Servletlink]
 
-7. [JSP]
+7. [JSP][JSPlink]
     + JSPStudy의 JSP&Servlet
   
-8. [ToyProject]
+8. [ToyProject][ToyProjectlink]
 
 9. [Spring]
     + Spring in Action
