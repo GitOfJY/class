@@ -13,7 +13,7 @@
 [Servletlink]: https://github.com/GitOfJY/class/tree/main/server/ServletTest
 [JSPlink]: https://github.com/GitOfJY/class/tree/main/server/JSPTest
 [ToyProjectlink]: https://github.com/GitOfJY/class/tree/main/server/ToyProject
-[Springlink]:
+[Springlink]: https://github.com/GitOfJY/class/tree/main/spring
 
 1. [Java][Javalink]
     + Java의 정석
@@ -35,5 +35,5 @@
   
 8. [ToyProject][ToyProjectlink]
 
-9. [Spring]
+9. [Spring][Springlink]
     + Spring in Action
