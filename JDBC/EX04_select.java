@@ -497,7 +497,7 @@ public class EX04_select {
 			System.out.println(cnt1);
 			
 			// int cnt2 = rs.getInt("컬럼명"); > 가독성이 높기 때문에 자주 사용
-			//int cnt2 = rs.getInt("count(*)"); 가독성 안 조흐니 alias 붙이기
+			//int cnt2 = rs.getInt("count(*)"); 가독성 안 좋으니 alias 붙이기
 			int cnt2 = rs.getInt("cnt");
 			System.out.println(cnt2);
 		
