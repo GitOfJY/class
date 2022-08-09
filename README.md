@@ -43,4 +43,5 @@
  <span style="color:blue">글자파란색</span>  
 <span style="background-color: #f6f8fa">회색형광펜</span>  
 <mark>수업 자료</mark>  
-<span style="color:yellow"> 글씨색 변경 </span>
+<span style="color:yellow"> 글씨색 변경 </span>  
+<font color='dodgerblue'> 예쁜 파랑 </font>
