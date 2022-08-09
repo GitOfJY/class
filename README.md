@@ -39,11 +39,3 @@
 [ToyProjectlink]: https://github.com/GitOfJY/class/tree/main/server/ToyProject
 [Springlink]: https://github.com/GitOfJY/class/tree/main/spring 
 
-<span style="color:red">붉은 색</span>
- <span style="color:blue">글자파란색</span>  
-<span style="background-color: #f6f8fa">회색형광펜</span>  
-<mark>수업 자료</mark>  
-<span style="color:yellow"> 글씨색 변경 </span>  
-<font color='dodgerblue'> 예쁜 파랑 </font>
-<font color='#1E90FF'> 예쁜 파랑 </font>
-<mark style='background-color: #f6f8fa'> 연한 회색 </mark>
