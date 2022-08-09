@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.test.java.obj.access.Phone" project="JavaTest" 
+    file="/JavaTest/src/com/test/java/obj/access/EX33_Access.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="291" width="151" x="284" y="56"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.test.java.obj.access.Cup" project="JavaTest" 
+    file="/JavaTest/src/com/test/java/obj/access/EX33_Access.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="345" width="160" x="440" y="56"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.test.java.obj.access.SmartPhone" project="JavaTest" 
+    file="/JavaTest/src/com/test/java/obj/access/EX33_Access.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="381" width="168" x="605" y="56"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.test.java.obj.access.Book" project="JavaTest" 
+    file="/JavaTest/src/com/test/java/obj/access/EX33_Access.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="183" width="151" x="778" y="56"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.test.java.obj.access.EX33_Access" project="JavaTest" 
+    file="/JavaTest/src/com/test/java/obj/access/EX33_Access.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="165" width="151" x="934" y="56"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
