@@ -5,28 +5,35 @@
 
 
 
-[Javalink]: https://google.com "Go google"
-
+[Javalink]: https://github.com/GitOfJY/class/tree/main/java/src/com/test/java
+[Oraclelink]:
+[CSSlink]:
+[HTMLlink]:
+[JavaScriptlink]:
+[Servletlink]:
+[JSPlink]:
+[ToyProjectlink]:
+[Springlink]:
 
 1. [Java][Javalink]
     + Java의 정석
 
-2. Oracle
+2. [Oracle][Oraclelink]
     + 데이터베이스 개론과 실습
 
-3. CSS
+3. [CSS]
 
-4. HTML
+4. [HTML]
     + HTML5 웹 프로그래밍 입문
   
-5. JavaScript
+5. [JavaScript]
 
-6. Servlet
+6. [Servlet]
 
-7. JSP
+7. [JSP]
     + JSPStudy의 JSP&Servlet
   
-8. ToyProject
+8. [ToyProject]
 
-9. Spring
+9. [Spring]
     + Spring in Action
