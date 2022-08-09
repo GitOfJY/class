@@ -45,3 +45,4 @@
 <mark>수업 자료</mark>  
 <span style="color:yellow"> 글씨색 변경 </span>  
 <font color='dodgerblue'> 예쁜 파랑 </font>
+<font color='#1E90FF'> 예쁜 파랑 </font>
