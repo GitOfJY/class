@@ -1,5 +1,5 @@
 ## [쌍용교육센터] 
-> <span style="background-color:red">수업 자료</span>와 복습한 교재 내용입니다.  
+> 수업 자료와 복습한 교재 내용입니다.  
 > 2022.03.03 ~ 2022.08.12  
 
 
@@ -40,5 +40,6 @@
 [Springlink]: https://github.com/GitOfJY/class/tree/main/spring 
 
 
- <span style="color:blue">글자파란색</span>
-<span style="background-color: #f6f8fa">회색형광펜</span>
+ <span style="color:blue">글자파란색</span>  
+<span style="background-color: #f6f8fa">회색형광펜</span>  
+<mark>수업 자료</mark>  
