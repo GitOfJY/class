@@ -7,8 +7,8 @@
 
 [Javalink]: https://github.com/GitOfJY/class/tree/main/java/src/com/test/java
 [Oraclelink]:
-[CSSlink]:
-[HTMLlink]:
+[CSSlink]: https://github.com/GitOfJY/class/tree/main/css
+[HTMLlink]: https://github.com/GitOfJY/class/tree/main/html
 [JavaScriptlink]:
 [Servletlink]:
 [JSPlink]:
